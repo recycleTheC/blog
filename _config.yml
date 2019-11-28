@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Personal Blog
+title: Compile & Run
 author: Mario Kopjar
 year: "2019."
 description: >
@@ -28,7 +28,7 @@ about: >- # this means to ignore newlines until "baseurl:"
   Oduvijek volim računala i zanima me programiranje.
 
 cite: >
-  "It’s not our fault. No one designed us. We’re just an accident, Harold. We’re just bad code." - Samatha Groves aka Root, Person of Interest
+  "It’s not our fault. No one designed us. We’re just an accident, Harold. We’re just bad code." - Samatha Groves aka Root
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  recycleTheC

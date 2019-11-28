@@ -6,6 +6,8 @@ categories: racunalne-mreze static-ip
 permalink: /racunalne-mreze/postavljanje-staticke-ip-adrese/
 ---
 
+# Alat netsh
+
 `netsh` je alat komandne linije koji omogućava pregled i konfiguriranje mrežnih postavki na **Microsoft Windows** operativnom sustavu.
 
 # Postavljanje statičke IP adrese
@@ -25,11 +27,11 @@ U konzolu alata `netsh` upisati: `interface ipv4 show interfaces`
 Alat je prikazao 2 mrežne kartice: *Loopback Pseudo-Interface 1 (virtualna mrežna kartica)* i *Ethernet*. 
 Statičku IP adresa je potrebno postaviti na mrežnu karticu **Ethernet**.
 
-Dodatne informacije o mrežnoim karticama moguće je saznati naredbom `interface ipv4 show config` u konzoli alata `netsh`:
+Dodatne informacije o mrežnim karticama moguće je saznati naredbom `interface ipv4 show config` u konzoli alata `netsh`:
 
 ![netsh konzola](/assets/rm/static-ip/image003.png)
 
-Ako je mrežna kartica prethodno automatski konfigurirana pomoću mrežne usluge **DHCP**, u prikazu će biti ispisane IP adrese *zadanog pristupnika* (**default gateway**), IP adrese korištenih **DNS servera** i **subnet maska** mreže, što će biti korišteno u konfiguriranju statičke IP adrese.
+Ako je mrežna kartica prethodno automatski konfigurirana pomoću mrežne usluge **DHCP**, u prikazu će biti ispisane IP adrese *zadanog pristupnika* (**default gateway**), IP adrese korištenih **DNS servera** i **subnet maska** mreže, što može biti korisno u konfiguriranju statičke IP adrese ili dijagnostici.
 
 **Za postavljanje statičke IP adrese koristiti slijedeće podatke:**
 
@@ -61,7 +63,7 @@ Nakon potvrde naredbe, u konzolu alata `netsh` ponovno upisati naredbu `interfac
 
 ![netsh konzola](/assets/rm/static-ip/image005.png)
 
-Statički konfigurairana IP adresa je uspješno postavljena i omogućen je potpuni pristup Internetu!
+Statička IP adresa je uspješno postavljena i omogućen je potpuni pristup Internetu!
 
 # Izvori
 

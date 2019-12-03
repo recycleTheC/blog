@@ -14,7 +14,7 @@ permalink: /racunalne-mreze/postavljanje-staticke-ip-adrese/
 
 Pokrenuti alat **Naredbeni redak** kao administrator. Ako se otvori prozor **Kontrole korisničkog računa** i zatraži dopuštenje za izvršenje promjena na uređaju, dospustiti klikom na gumb **Da**.
 
-U **Naredbeni redak** upisati naredbu `netsh` i potvrditi tipkom **Enter**. Otvara za konzola alata `netsh`:
+U **Naredbeni redak** upisati naredbu `netsh` i potvrditi tipkom **Enter**. Otvara se konzola alata `netsh`:
 
 ![netsh konzola](/assets/rm/static-ip/image001.png)
 

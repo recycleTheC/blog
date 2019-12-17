@@ -28,7 +28,7 @@ about: >- # this means to ignore newlines until "baseurl:"
   Oduvijek volim računala i zanima me programiranje.
 
 cite: >
-  "It’s not our fault. No one designed us. We’re just an accident, Harold. We’re just bad code." - Samatha Groves aka Root
+  "It’s not our fault. No one designed us. We’re just an accident, Harold. We’re just bad code." - Root
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  recycleTheC

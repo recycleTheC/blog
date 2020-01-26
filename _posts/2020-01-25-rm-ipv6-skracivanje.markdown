@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Računalne mreže - Skraćivanje zapisa IPv6 adrese"
-date:   2019-11-28 10:00:00 +0100
+date:   2020-01-25 10:00:00 +0100
 categories: racunalne-mreze static-ip
 permalink: /racunalne-mreze/skracivanje-zapisa-ipv6-adrese/
 ---

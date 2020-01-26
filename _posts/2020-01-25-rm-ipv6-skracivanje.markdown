@@ -82,9 +82,12 @@ details[open] summary {
 
 <div style="margin-top: 15px;">
 <details>
-    <summary>Rješenje zadatka (JavaScript)</summary>
+    <summary>Opis rješenja zadatka (JavaScript)</summary>
     <p>
     U izradi!
+    </p>
+    <p>
+    Kod dostupan na <a href="https://github.com/recycleTheC/blog/blob/master/assets/rm/ipv6/script.js" target="_blank">GitHub.com</a>
     </p>
 </details>
 </div>

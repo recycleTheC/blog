@@ -29,10 +29,9 @@ permalink: /racunalne-mreze/skracivanje-zapisa-ipv6-adrese/
 }
 
 #address{
-    height: 20px;
+    height: 24px;
     border: 1px solid lightgray;
     border-radius: 3px;
-    font-weight: bold;
 }
 
 .active-details{

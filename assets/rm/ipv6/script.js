@@ -25,9 +25,9 @@ function validateAddress(){
 
 function compressIPv6(){
 
-    let address = document.getElementById("address").value.split(":").map(x => parseInt(x, 16));
-
     if(validateAddress()){
+
+        let address = document.getElementById("address").value.split(":").map(x => parseInt(x, 16));
 
         let skipped = false;
         let compressed = "";

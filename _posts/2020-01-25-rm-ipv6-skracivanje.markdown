@@ -83,10 +83,7 @@ details[open] summary {
 <details>
     <summary>Opis rješenja zadatka (JavaScript)</summary>
     <p>
-    U izradi!
-    </p>
-    <p>
-    Kod dostupan na <a href="https://github.com/recycleTheC/blog/blob/master/assets/rm/ipv6/script.js" target="_blank">GitHub.com</a>
+    <script src="https://gist.github.com/recycleTheC/153cc464b535708398ad7e299d0128e9.js"></script>
     </p>
 </details>
 </div>

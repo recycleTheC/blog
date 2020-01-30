@@ -34,17 +34,6 @@ permalink: /racunalne-mreze/skracivanje-zapisa-ipv6-adrese/
     border-radius: 3px;
 }
 
-.active-details{
-
-    margin-top: 12px;
-    padding: 10px;
-
-    color: #3c763d;
-    background-color: #dff0d8;
-    border: 1px solid;
-    border-color: #d6e9c6;
-}
-
 details {
     border: 1px solid #aaa;
     border-radius: 4px;

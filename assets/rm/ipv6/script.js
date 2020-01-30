@@ -41,6 +41,8 @@ function validateAddress(){
 
 function compressIPv6(){
 
+    let frame = document.getElementById("details"); // element za ispis rezultata funkcije
+
     if(validateAddress()){ // Provjerava je li upisna ispravna IPv6 adresa
 
         // Uzima vrijednost iz elementa za unos adrese, vrijednosti između ':' sprema u polje kao cjelobrojnu vrijednost
@@ -63,15 +65,20 @@ function compressIPv6(){
             }
         }
 
-        // Ispis vrijednosti skrećene IPv6 adrese u elementu 'details' unutar HTML koda
-        document.getElementById("details").innerHTML = "Skraćena IPv6 adresa: <strong>" + compressed + "</strong>";
-        document.getElementById("details").className = "active-details"; // Primjena CSS-a na element 'details' umetanjem naziva klase
+        // Ispis vrijednosti skrećene IPv6 adrese u elementu 'details' unutar HTML koda sa dodavanjem CSS oblikovanja
+        frame.innerHTML = "Skraćena IPv6 adresa: <strong>" + compressed + "</strong>";
+        frame.style.marginTop = "12px";
+        frame.style.padding = "10px";
+        frame.style.color = "#3c763d";
+        frame.style.backgroundColor = "#dff0d8";
+        frame.border = "1px solid";
+        frame.style.borderColor = "#d6e9c6";
     }
     else
     {
         // Ako adresa nije ispravna
-        document.getElementById("details").innerHTML = ""; // Uklanjanje sadržaja unutar elementa 'details'
-        document.getElementById("details").className = ""; // Uklanjanje atribura klase za element 'details'
+        frame.innerHTML = ""; // Uklanjanje sadržaja unutar elementa 'details'
+        frame.style = ""; // Uklanjanje CSS-a
         alert("Nije upisana ispravna IPv6 adresa!"); // Prikazivanje poruke o pogrešci unutar preglednika
     }
 }
@@ -82,6 +89,6 @@ function compressIPv6(){
 
 function reset(){
     document.getElementById("details").innerHTML = ""; // Uklanjanje sadržaja unutar elementa
-    document.getElementById("details").className = ""; // Uklanjanje atribura klase za element 'details'
+    document.getElementById("details").style = ""; // Uklanjanje CSS-a
     document.getElementById("address").value = ""; // Brisanje sadržaja polja za unos IPv6 adrese
 }

@@ -15,6 +15,8 @@ function validateAddress(){
     let charAddress = document.getElementById("address").value.split(":").map(x => x); // Uzima vrijednost iz elementa za unos adrese, vrijednosti između ':' sprema u polje kao znakovnu vrijednost
     let address = document.getElementById("address").value.split(":").map(x => parseInt(x, 16)); // Uzima vrijednost iz elementa za unos adrese, vrijednosti između ':' sprema u polje kao cjelobrojnu vrijednost
 
+    if(address.length==8){ // Ispituje ima li upisana adresa 8 blokova
+
     for(let i=0; i < charAddress.length; i++){
         for(let j=0; j < charAddress[i].length; j++){
 
@@ -31,6 +33,9 @@ function validateAddress(){
             return false;
         }
     }
+
+    }
+    else return false; // Vraća false ako upisana adresa nema 8 blokova
 
     return true; // Ako su sve prethodne provjere uspješno izvedene, vraća 'true'
 }

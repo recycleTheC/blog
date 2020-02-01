@@ -120,14 +120,13 @@ function reset(){
     }
     else{ // Ako je API dostupan, sprema skraćenu IP adresu u međuspremnik
         try {
-
-            if(/Mobi|Android/.test(navigator.userAgent)){ // Ako je stranica otvorena na mobilnom uređaju
-                navigator.permissions.query({name: 'clipboard-write'}); // Zatraži dopuštenje za pisanje u međuspremnik 
-            }
-
-            navigator.clipboard.writeText(text); // Zapiši skraćenu IP adresu u međuspremnik
-            alert("Skraćena IP adresa kopirana u međuspremnik!");
-        } catch (err) {
+            navigator.permissions.query({name:'clipboard-write'}).then(result => {
+            if (result.state == 'granted' || result.state == 'prompt'){
+                navigator.clipboard.writeText(text); // Zapiši skraćenu IP adresu u međuspremnik
+                alert("Skraćena IP adresa kopirana u međuspremnik!");
+            }});
+        }            
+        catch (err) {
             console.log(err);
         }   
     }

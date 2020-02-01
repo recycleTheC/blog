@@ -121,7 +121,7 @@ function reset(){
     else{ // Ako je API dostupan, sprema skraćenu IP adresu u međuspremnik
         try {
 
-            if(/Mobi/.test(navigator.userAgent)){ // Ako je stranica otvorena na mobilnom uređaju
+            if(/Mobi|Android/.test(navigator.userAgent)){ // Ako je stranica otvorena na mobilnom uređaju
                 navigator.permissions.query({name: 'clipboard-write'}); // Zatraži dopuštenje za pisanje u međuspremnik 
             }
 

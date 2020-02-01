@@ -7,7 +7,7 @@ permalink: /racunalne-mreze/skracivanje-zapisa-ipv6-adrese/
 ---
 
 <script src="/assets/rm/ipv6/script.js"></script>
-<style src="/assets/rm/ipv6/style.css">
+<style>
 #submit{
     color: white;
     background-color: rgb(42, 189, 47);
@@ -26,6 +26,17 @@ permalink: /racunalne-mreze/skracivanje-zapisa-ipv6-adrese/
     border-radius: 4px;
     border: none;
     font-weight: bold;
+}
+
+#copy{
+    color: white;
+    background-color: #0066FF;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    visibility : hidden;
 }
 
 #address{
@@ -62,6 +73,7 @@ details[open] summary {
     <input type="text" name="IPv6 Adresa" id="address" size="40"> <br>
     <input id="submit" type="button" value="Skrati IPv6 adresu" onclick="compressIPv6()">
     <input id="reset" type="button" value="Resetiraj" onclick="reset()">
+    <input id="copy" type="button" value="Kopiraj" onclick="copy()">
 </div>
 
 <div id="details">

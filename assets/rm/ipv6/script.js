@@ -78,6 +78,10 @@ function compressIPv6(){
         frame.style.backgroundColor = "#dff0d8";
         frame.border = "1px solid";
         frame.style.borderColor = "#d6e9c6";
+
+        if (navigator.clipboard) { // Provjerava je li dostupan Clipboard API web preglednika
+            document.getElementById("copy").style.visibility = "visible"; // Postavlja gumb za kopiranje skraćene adrese vidljivim
+        }
     }
     else
     {
@@ -96,4 +100,30 @@ function reset(){
     document.getElementById("details").innerHTML = ""; // Uklanjanje sadržaja unutar elementa
     document.getElementById("details").style = ""; // Uklanjanje CSS-a
     document.getElementById("address").value = ""; // Brisanje sadržaja polja za unos IPv6 adrese
+    document.getElementById("copy").style.visibility = "hidden"; // Skriva gumb za kopiranje skraćene adrese
 }
+
+/**
+ * Kopira skraćenu IPv6 adresu u međuspremnik uređaja.
+ * Podržani pretraživači:
+ * - Google Chrome >=66
+ * - Mozilla Firefox >=63
+ * - Opera >=53
+ */
+
+ function copy(){
+
+    let text = document.querySelector('strong').innerText; // Čita skraćenu adresu
+
+    if (!navigator.clipboard) { // Provjerava je li dostupan Clipboard API web preglednika
+        console.log("Pogreška: Clipboard API nije dostupan!");
+    }
+    else{ // Ako je API dostupan, sprema skraćenu IP adresu u međuspremnik
+        try {
+            navigator.clipboard.writeText(text);
+            alert("Skraćena IP adresa kopirana u međuspremnik!");
+        } catch (err) {
+            console.log(err);
+        }   
+    }
+ }

@@ -11,14 +11,14 @@ toc: true
 
 ## Priprema za instalaciju
 
-### Preuzimanje instalacijske datoteke za Micrososft SQL Server
+### Preuzimanje instalacijske datoteke za Microsoft SQL Server
 
 Sa web stranice <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads"><cite>SQL Server Downloads</cite>, Microsoft</a>, preuzeti
 datoteku za instalaciju <strong>SQL Server 2019 Developer</strong> inačice.
 
 ![SQL Server](/assets/dbp/1.jpg)
 
-### Preuzimanje instalacijske datoteke za Micrososft SQL Server Management Studio
+### Preuzimanje instalacijske datoteke za Microsoft SQL Server Management Studio
 
 Sa web stranice <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads"><cite>Download SQL Server Management Studio</cite>, Microsoft</a>, preuzeti
 datoteku za instalaciju <strong>SSMS</strong>.
@@ -59,7 +59,7 @@ Ako je instalacija ispravno i uspješno napravljena, trebao bi se prikazati proz
 
 ![SQL Server](/assets/dbp/8.jpg)
 
-### <a id="install">Instalacija Micrososft SQL Server Management Studio</a>
+### <a id="install">Instalacija Microsoft SQL Server Management Studio</a>
 
 Pokrenuti izvršnu datoteku za instalaciju SQL Server Management Studio (<cite>SSMS-Setup-ENU.exe</cite>).
 
@@ -73,7 +73,7 @@ Ako je instalacija ispravno i uspješno napravljena, trebao bi se prikazati proz
 
 ![SQL Server Management Studio](/assets/dbp/12.jpg)
 
-## Pokretanje Micrososft SQL Server Management Studio
+## Pokretanje Microsoft SQL Server Management Studio
 
 Pomoću Start Menija pokrenuti Microsoft SQL Server Management Studio.
 

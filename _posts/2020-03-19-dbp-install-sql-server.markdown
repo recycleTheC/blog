@@ -27,7 +27,7 @@ datoteku za instalaciju <strong>SSMS</strong>.
 
 <h2>Instalacija</h2>
 
-<h3>Instalacija Micrososft SQL Servera<h3>
+<h3>Instalacija Micrososft SQL Servera</h3>
 
 Pokrenuti izvršnu datoteku za instalaciju SQL Servera (<cite>SQL2019-SSEI-DEV.exe</cite>).
 
@@ -87,7 +87,7 @@ Nakon učitavanja aplikacije, prikazuje se prozor:
 
 <h2>Poznati problemi</h2>
 
-<h3>SQL Server Management Studio ne prikazuje naziv servera na koji se povezuje<h3>
+<h3>SQL Server Management Studio ne prikazuje naziv servera na koji se povezuje</h3>
 
 ![SQL Server Management Studio](/assets/dbp/16.jpg)
 

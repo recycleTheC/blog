@@ -115,5 +115,5 @@ Ukoliko se ne prikazuje, postoji više mogućih problema:
 
 Korišten software za izradu uputa:
 
-- Operacijski sustav: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/"><cite>Microsoft Windows 10 Enterprise, Development verzija</cite></a></p>
-- Virtualizacija:  <a href="https://www.virtualbox.org/"><cite>Oracle VirtualBox, verzija 6.1</cite></a></p>
+- Operacijski sustav: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/"><cite>Microsoft Windows 10 Enterprise, Development verzija</cite></a>
+- Virtualizacija:  <a href="https://www.virtualbox.org/"><cite>Oracle VirtualBox, verzija 6.1</cite></a>

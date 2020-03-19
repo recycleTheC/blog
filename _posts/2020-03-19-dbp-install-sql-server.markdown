@@ -25,6 +25,8 @@ datoteku za instalaciju <strong>SSMS</strong>.
 
 ![SQL Server Management Studio](/assets/dbp/9.jpg)
 
+<hr>
+
 <h2>Instalacija</h2>
 
 <h3>Instalacija Micrososft SQL Servera</h3>
@@ -57,7 +59,7 @@ Ako je instalacija ispravno i uspješno napravljena, trebao bi se prikazati proz
 
 ![SQL Server](/assets/dbp/8.jpg)
 
-<h3 class="install">Instalacija Micrososft SQL Server Management Studio</h3>
+<h3><a id="install">Instalacija Micrososft SQL Server Management Studio</a></h3>
 
 Pokrenuti izvršnu datoteku za instalaciju SQL Server Management Studio (<cite>SSMS-Setup-ENU.exe</cite>).
 
@@ -91,7 +93,7 @@ Nakon učitavanja aplikacije, prikazuje se prozor:
 
 ![SQL Server Management Studio](/assets/dbp/16.jpg)
 
-Ukoliko je instalacija SQL Servera napravljena naknadno, poterbno je ručno dodati server koji će se koristiti za povezivanje.
+Ukoliko je instalacija SQL Servera napravljena naknadno, potrebno je ručno dodati server koji će se koristiti za povezivanje.
 
 Kliknuti na padajući izbornik <cite>Server Name</cite> i zatim kliknuti na <cite>Browse for more</cite>.
 
@@ -113,5 +115,5 @@ Ukoliko se ne prikazuje, postoji više mogućih problema:
 
 Korišten software za izradu uputa:
 
-<p>Operacijski sustav: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/"><cite>Microsoft Windows 10 Enterprise, Development verzija</cite></a></p>
-<p>Virtualizacija:  <a href="https://www.virtualbox.org/"><cite>Oracle VirtualBox, verzija 6.1</cite></a></p>
+- Operacijski sustav: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/"><cite>Microsoft Windows 10 Enterprise, Development verzija</cite></a></p>
+- Virtualizacija:  <a href="https://www.virtualbox.org/"><cite>Oracle VirtualBox, verzija 6.1</cite></a></p>

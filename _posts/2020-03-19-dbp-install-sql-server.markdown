@@ -7,8 +7,6 @@ permalink: /dbp/install-sql-server/
 toc: true
 ---
 
-{{ toc }}
-
 # Preduvjeti za instalaciju
 
 

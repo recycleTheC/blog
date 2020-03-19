@@ -59,7 +59,7 @@ Ako je instalacija ispravno i uspješno napravljena, trebao bi se prikazati proz
 
 ![SQL Server](/assets/dbp/8.jpg)
 
-<h3><a id="install">Instalacija Micrososft SQL Server Management Studio</a></h3>
+### <a id="install">Instalacija Micrososft SQL Server Management Studio</a>
 
 Pokrenuti izvršnu datoteku za instalaciju SQL Server Management Studio (<cite>SSMS-Setup-ENU.exe</cite>).
 
@@ -111,7 +111,7 @@ Ukoliko se ne prikazuje, postoji više mogućih problema:
 - SQL Server nije ispravno konfigururan
 - ostali razlozi
 
-# Dodatne napomene
+## Dodatne napomene
 
 Korišten software za izradu uputa:
 

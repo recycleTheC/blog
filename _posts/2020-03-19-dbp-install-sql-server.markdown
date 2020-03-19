@@ -7,6 +7,14 @@ permalink: /dbp/install-sql-server/
 toc: true
 ---
 
+<style>
+h2{
+    font: 20px;
+}
+</style>
+
+<hr>
+
 <h1>Priprema za instalaciju</h1>
 
 <h2>Preuzimanje Micrososft SQL Server instalacijske datoteke</h2>
@@ -18,5 +26,5 @@ datoteku za instalaciju <strong>SQL Server 2019 Developer</strong> inačice.
 
 # Dodatne napomene
 
-Operacijski sustav: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/"><cite>Microsoft Windows 10 Enterprise, Development verzija</cite></a>
-Virtualizacija:  <a href="https://www.virtualbox.org/"><cite>Oracle VirtualBox, verzija 6.1</cite></a>
+<p>Operacijski sustav: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/"><cite>Microsoft Windows 10 Enterprise, Development verzija</cite></a></p>
+<p>Virtualizacija:  <a href="https://www.virtualbox.org/"><cite>Oracle VirtualBox, verzija 6.1</cite></a></p>

@@ -25,7 +25,7 @@ datoteku za instalaciju <strong>SSMS</strong>.
 
 ![SQL Server Management Studio](/assets/dbp/9.jpg)
 
-<h2>Instalacija<h2>
+<h2>Instalacija</h2>
 
 <h3>Instalacija Micrososft SQL Servera<h3>
 
@@ -57,7 +57,7 @@ Ako je instalacija ispravno i uspješno napravljena, trebao bi se prikazati proz
 
 ![SQL Server](/assets/dbp/8.jpg)
 
-<h3 class="install">Instalacija Micrososft SQL Server Management Studio<h3>
+<h3 class="install">Instalacija Micrososft SQL Server Management Studio</h3>
 
 Pokrenuti izvršnu datoteku za instalaciju SQL Server Management Studio (<cite>SSMS-Setup-ENU.exe</cite>).
 
@@ -101,7 +101,7 @@ U prozoru <cite>Browse for Servers</cite> kliknuti na <cite>Database Engine</cit
 
 ![SQL Server Management Studio](/assets/dbp/18.jpg)
 
-Odabir potvrditi klikom na <cite>OK<cite>.
+Odabir potvrditi klikom na <cite>OK</cite>.
 
 Ukoliko se ne prikazuje, postoji više mogućih problema:
 

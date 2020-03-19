@@ -9,16 +9,16 @@ toc: true
 
 <hr>
 
-<h2>Priprema za instalaciju</h2>
+## Priprema za instalaciju
 
-<h3>Preuzimanje instalacijske datoteke za Micrososft SQL Server</h3>
+### Preuzimanje instalacijske datoteke za Micrososft SQL Server
 
 Sa web stranice <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads"><cite>SQL Server Downloads</cite>, Microsoft</a>, preuzeti
 datoteku za instalaciju <strong>SQL Server 2019 Developer</strong> inačice.
 
 ![SQL Server](/assets/dbp/1.jpg)
 
-<h3>Preuzimanje instalacijske datoteke za Micrososft SQL Server Management Studio</h3>
+### Preuzimanje instalacijske datoteke za Micrososft SQL Server Management Studio
 
 Sa web stranice <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads"><cite>Download SQL Server Management Studio</cite>, Microsoft</a>, preuzeti
 datoteku za instalaciju <strong>SSMS</strong>.
@@ -27,9 +27,9 @@ datoteku za instalaciju <strong>SSMS</strong>.
 
 <hr>
 
-<h2>Instalacija</h2>
+## Instalacija
 
-<h3>Instalacija Micrososft SQL Servera</h3>
+### Instalacija Micrososft SQL Servera
 
 Pokrenuti izvršnu datoteku za instalaciju SQL Servera (<cite>SQL2019-SSEI-DEV.exe</cite>).
 
@@ -73,7 +73,7 @@ Ako je instalacija ispravno i uspješno napravljena, trebao bi se prikazati proz
 
 ![SQL Server Management Studio](/assets/dbp/12.jpg)
 
-<h2>Pokretanje Micrososft SQL Server Management Studio</h2>
+## Pokretanje Micrososft SQL Server Management Studio
 
 Pomoću Start Menija pokrenuti Microsoft SQL Server Management Studio.
 
@@ -87,9 +87,9 @@ Nakon učitavanja aplikacije, prikazuje se prozor:
 
 <strong>SQL Server je uspješno instaliran i konfiguriran!</strong>
 
-<h2>Poznati problemi</h2>
+## Poznati problemi
 
-<h3>SQL Server Management Studio ne prikazuje naziv servera na koji se povezuje</h3>
+### SQL Server Management Studio ne prikazuje naziv servera na koji se povezuje
 
 ![SQL Server Management Studio](/assets/dbp/16.jpg)
 

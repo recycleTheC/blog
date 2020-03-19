@@ -7,17 +7,11 @@ permalink: /dbp/install-sql-server/
 toc: true
 ---
 
-<style>
-h2{
-    font: 20px;
-}
-</style>
-
 <hr>
 
-<h1>Priprema za instalaciju</h1>
+<h2>Priprema za instalaciju</h2>
 
-<h2>Preuzimanje Micrososft SQL Server instalacijske datoteke</h2>
+<h3>Preuzimanje Micrososft SQL Server instalacijske datoteke</h3>
 
 Sa web stranice <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads"><cite>SQL Server Downloads</cite>, Microsoft</a>, preuzeti
 datoteku za instalaciju <strong>SQL Server 2019 Developer</strong> inačice.

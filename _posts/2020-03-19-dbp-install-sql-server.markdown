@@ -29,7 +29,7 @@ datoteku za instalaciju <strong>SSMS</strong>.
 
 ## Instalacija
 
-### Instalacija Micrososft SQL Servera
+### Instalacija Microsoft SQL Servera
 
 Pokrenuti izvršnu datoteku za instalaciju SQL Servera (<cite>SQL2019-SSEI-DEV.exe</cite>).
 
@@ -87,6 +87,8 @@ Nakon učitavanja aplikacije, prikazuje se prozor:
 
 <strong>SQL Server je uspješno instaliran i konfiguriran!</strong>
 
+<hr>
+
 ## Poznati problemi
 
 ### SQL Server Management Studio ne prikazuje naziv servera na koji se povezuje
@@ -110,6 +112,8 @@ Ukoliko se ne prikazuje, postoji više mogućih problema:
 - SQL Server nije instaliran na računalu (<a href="#install">rješenje</a>)
 - SQL Server nije ispravno konfigururan
 - ostali razlozi
+
+<hr>
 
 ## Dodatne napomene
 

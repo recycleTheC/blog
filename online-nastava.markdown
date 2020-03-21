@@ -9,5 +9,5 @@ permalink: /online-nastava/
 ### Računalne mreže
 
 <ul>
-    <li><a href="/racunalne-mreze/sazimanje-ruta/">Sažimanje ruta</a>
+    <li><a href="/racunalne-mreze/sazimanje-ruta/">Sažimanje ruta</a></li>
 </ul>

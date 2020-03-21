@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Računalne mreže - Samostalni rad"
+permalink: /online-nastava/racunalne-mreze/usmjernicki-protokoli
 ---
 
 # Usmjernički protokoli

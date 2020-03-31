@@ -10,3 +10,4 @@ exclude: true
 # Protokoli tipa Distance Vector, RIP protokol
 
 <img src="https://drive.google.com/uc?export=view&id=1Ob7NU5BfGsUE0vSiNdK4_xpqEzh7-iRb">
+<img src="https://drive.google.com/uc?export=view&id=1OcmRVP3PW686gpkeqzHJDAGXgl-rTnaK">

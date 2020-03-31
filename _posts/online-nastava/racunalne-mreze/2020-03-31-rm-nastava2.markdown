@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-03-21 10:00:00 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/protokoli-distance-vector-rip/
+exclude: true
+---
+
+# Protokoli tipa Distance Vector, RIP protokol
+
+<img src="https://drive.google.com/uc?export=view&id=1Ob7NU5BfGsUE0vSiNdK4_xpqEzh7-iRb">

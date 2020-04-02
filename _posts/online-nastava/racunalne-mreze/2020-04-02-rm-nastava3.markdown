@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-03-21 10:00:00 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/lv-rip-protokol/
+exclude: true
+---
+
+# Konfiguracija RIPv1 protokola
+
+<img src="https://drive.google.com/uc?export=view&id=1PrqpGSEQ9EKIXyPf9aiJh_HnebRQVgzW">
+<img src="https://drive.google.com/uc?export=view&id=1Q-sGAsemMN8CJZexK9MPlpuKXAmSaoaX">
+<img src="https://drive.google.com/uc?export=view&id=1PllEQ5xwSGkQmlISdT_V-nL6KMScXfum">

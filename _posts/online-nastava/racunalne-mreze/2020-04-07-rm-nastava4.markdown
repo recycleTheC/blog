@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-04-07 15:45:00 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/protokoli-stanja-veze-ospf/
+exclude: true
+---
+
+# Protokoli tipa stanja veze, OSPF protokol
+
+<img src="https://drive.google.com/uc?export=view&id=1R-Xl-eqw2ILEQNaa3pHERS8CxCUHlDNe">
+<img src="https://drive.google.com/uc?export=view&id=1RBJKCWqAMZEtnq80iorJLKIFVQbwBI7c">
+<img src="https://drive.google.com/uc?export=view&id=1ROZ6shTwdEXHbJgwEFSzmelJn_dIzzvm">

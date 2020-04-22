@@ -20,7 +20,7 @@ datoteku za instalaciju <strong>SQL Server 2019 Developer</strong> inačice.
 
 ### Preuzimanje instalacijske datoteke za Microsoft SQL Server Management Studio
 
-Sa web stranice <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads"><cite>Download SQL Server Management Studio</cite>, Microsoft</a>, preuzeti
+Sa web stranice <a href="https://docs.microsoft.com/hr-hr/sql/ssms/download-sql-server-management-studio-ssms"><cite>Download SQL Server Management Studio</cite>, Microsoft</a>, preuzeti
 datoteku za instalaciju <strong>SSMS</strong>.
 
 ![SQL Server Management Studio](/assets/dbp/9.jpg)

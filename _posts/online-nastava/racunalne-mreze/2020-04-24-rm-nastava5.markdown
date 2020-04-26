@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-04-07 15:45:00 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/lv-ospf/
+exclude: true
+---
+
+# LV8 - Konfiguracija OSPF protokola
+
+<img src="https://drive.google.com/uc?export=view&id=1TCGKZ5QhF12eoTmk-oyEPV3iWPvl3vyv">
+<img src="https://drive.google.com/uc?export=view&id=1T1Hsyr5lfnc1ojcHr0xKnHo4gVdSAn-s">
+<img src="https://drive.google.com/uc?export=view&id=1T9IV6stWxkafGdgU7NiA5U_FtUdPOQEZ">
+<img src="https://drive.google.com/uc?export=view&id=1T2dL_0s16zRVrI8VJuD837PFc82yixYM">
+<img src="https://drive.google.com/uc?export=view&id=1T18sML51Rmr_ifi_zqWJRTaGOQFhiEOk">

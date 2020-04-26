@@ -12,6 +12,7 @@ permalink: /online-nastava/
     <li><a href="racunalne-mreze/sazimanje-ruta/">Sažimanje ruta</a></li>
     <li><a href="racunalne-mreze/usmjernicki-protokoli/">Vrste i podjela usmjerničkih protokola</a></li>
     <li><a href="racunalne-mreze/protokoli-distance-vector-rip/">Protokoli tipa Distance Vector, RIP protokol</a></li>
-    <li><a href="racunalne-mreze/lv-rip-protokol/">Konfiguracija RIPv1 protokola</a></li>
+    <li><a href="racunalne-mreze/lv-rip-protokol/"><strong>Laboratorijska vježba:</strong>Konfiguracija RIPv1 protokola</a></li>
     <li><a href="racunalne-mreze/protokoli-stanja-veze-ospf/">Protokoli tipa stanja veze, OSPF protokol</a></li>
+    <li><a href="racunalne-mreze/lv-ospf/"><strong>Laboratorijska vježba:</strong>Konfiguracija OSPF protokola</a></li>
 </ul>

@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-04-28 23:59:59 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/transportni-sloj/
+exclude: true
+---
+
+# Osnovne zadaće transportnog sloja
+
+<img src="https://drive.google.com/uc?export=view&id=1Th7ldzYVA0Pm9kILzLTViqbo6fx5DPRV">
+<img src="https://drive.google.com/uc?export=view&id=1Tov5-J0gRjfy6y7ez4RARaWAbwcSs1fv">
+<img src="https://drive.google.com/uc?export=view&id=1UIijIpzE3GxkcbueZatbTb1EebJrGFkz">

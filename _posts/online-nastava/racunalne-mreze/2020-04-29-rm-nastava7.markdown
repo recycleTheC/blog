@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-04-29 23:59:59 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/tcp-protokol/
+exclude: true
+---
+
+# TCP protokol
+
+<img src="https://drive.google.com/uc?export=view&id=1Tvt3cLJbNyU110c-_1euwSKxSmmjBWFp">
+<img src="https://drive.google.com/uc?export=view&id=1U-o0h2u5ay_xr5u5VbfLlt4czF_6tnhC">
+<img src="https://drive.google.com/uc?export=view&id=1U-xYrPgNl4KDBXeIDvsdbKK3A9grBRuE">

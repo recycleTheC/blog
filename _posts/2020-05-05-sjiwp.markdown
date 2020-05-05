@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Skriptni jezici i web programiranje"
+categories: sjiwp
+permalink: /sjiwp/
+---
+
+Svi materijali vezani uz predmet nalaze se na <a href="https://sjiwp.mario-kopjar.from.hr/">web stranici sjiwp.mario-kopjar.from.hr</a>

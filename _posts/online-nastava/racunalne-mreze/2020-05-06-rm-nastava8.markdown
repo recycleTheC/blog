@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-05-06 23:59:59 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/lv-tcp-udp/
+exclude: true
+---
+
+# Laboratorijska vježba: Protokoli transportnog sloja (TCP i UDP)
+
+<img src="https://drive.google.com/uc?export=view&id=1VMKe-edHKcYcseS3KVcuHfTwYRyK84Uo">
+<img src="https://drive.google.com/uc?export=view&id=1VN0YBKis2Tbdz1VqQ1avvD7ys7CEC6jz">
+<img src="https://drive.google.com/uc?export=view&id=1V1Q4s1i4hNoUbCXKvTo940B8fOkgc78W">
+<img src="https://drive.google.com/uc?export=view&id=1V5X2XLmuGdP5jWW8Pk4G5uCMA5btqqxH">

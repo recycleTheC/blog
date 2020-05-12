@@ -18,4 +18,5 @@ permalink: /online-nastava/
     <li><a href="racunalne-mreze/transportni-sloj/">Osnovne zadaće transportnog sloja</a></li>
     <li><a href="racunalne-mreze/tcp-protokol/">TCP protokol</a></li>
     <li><a href="racunalne-mreze/lv-tcp-udp/"><strong>Laboratorijska vježba:</strong> Protokoli transportnog sloja (TCP i UDP)</a></li>
+    <li><a href="racunalne-mreze/udp-protokol/">UDP protokol</a></li>
 </ul>

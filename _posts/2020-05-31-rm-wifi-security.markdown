@@ -268,12 +268,17 @@ koristi mreža.
 
 <ol>
   <li><a href="https://www.cert.hr/wp-content/uploads/2009/06/CCERT-PUBDOC-2009-06-267.pdf"><cite>WPA2 zaštita, CCERT-PUBDOC-2009-06-267</cite>, Aircrack-ng</a>, pregledano 30.05.2020.</li>
+  <li><a href="https://www.renderlab.net/projects/WPA-tables/"><cite>WPA tables</cite>, Renderlab</a>, pregledano 30.05.2020.</li>
+  <li><a href="http://dl.aircrack-ng.org/breakingwepandwpa.pdf"><cite>Practical attacks against WEP and WPA</cite>, Martin Beck, Erik Tews</a>, pregledano 30.05.2020.</li>
+  <li><a href="https://github.com/joswr1ght/cowpatty"><cite>coWPAtty: WPA2-PSK Cracking</cite>, Joshua Wright</a>, pregledano 31.05.2020.</li>
+  <li><a href="https://github.com/derv82/wifite2"><cite>wifite2</cite>, derv82</a>, pregledano 31.05.2020.</li>
 </ol>
 
 ### WPS
 
 <ol>
   <li><a href="https://www.wi-fi.org/download.php?file=/sites/default/files/private/Wi-Fi_Simple_Configuration_Technical_Specification_v2.0.5.pdf"><cite>Wi-Fi Simple Configuration, Technical Specification, v2.0.5</cite>, WiFi Alliance</a>, pregledano 30.05.2020.</li>
+  <li><a href="https://sviehb.files.wordpress.com/2011/12/viehboeck_wps.pdf"><cite>Brute forcing Wi-Fi Protected Setup</cite>, Stefan Viehböck</a>, pregledano 30.05.2020.</li>
 </ol>
 
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" href="https://mario-kopjar.from.hr/racunalne-mreze/wifi-security/"><span rel="dct:title">Sigurnost bezicnih mreza</span></a> by <a rel="cc:attributionURL" href="https://mario-kopjar.from.hr"><span rel="cc:attributionName">Mario Kopjar</span></a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0<img style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-by_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-nc_icon.svg" /></a></p>

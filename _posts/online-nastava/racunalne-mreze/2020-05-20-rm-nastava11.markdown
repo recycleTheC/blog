@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-05-06 23:59:59 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/lv-acl/
+exclude: true
+---
+
+# Laboratorijska vježba: Liste pristupa (ACL) na usmjerniku
+
+<img src="https://drive.google.com/uc?export=view&id=1XlS4FVisW63kWyQhEBApeaX_Yb5Toonq">
+<img src="https://drive.google.com/uc?export=view&id=1XlUcaZ7BzkjHlL5uwYAWbWyX_ms9FW2T">
+<img src="https://drive.google.com/uc?export=view&id=1XYRXJ1ZkNJ7MaP3jb-DoySEKuyMOIGDh">
+<img src="https://drive.google.com/uc?export=view&id=1XQ8WFdaUvexuvlGby41zg-P9BPMT6IQ0">
+<img src="https://drive.google.com/uc?export=view&id=1XT6PcZa_9YmYBAXAJkqzPPd9Fsr8WpBj">

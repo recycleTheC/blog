@@ -102,7 +102,37 @@ djeluju koristeći jednake protokole za pristup mreži.
 
 ***BSS*** može biti izoliran, ili povezan na *okosnicu* **distribucijskog sustava** (***DS***) kroz **pristupnu točku** (***AP***)
 
+Slijedeći izrazi se koriste prilikom dijagnostike ili testiranja ranjivosti bežičnih mreža u raznim aplikacijama.
+
+**BSSID** - jedinstveni identifikator mreže, MAC adresa pristupne točke
+
+**ESSID** - naziv pristupne točke
+
+Bežične mreže mogu biti **nezaštićene** (*otvorene*) ili zaštićene. Zaštita mreže se obavlja kriptiranjem podataka koji se prenose 
+mrežom i za pristup mreži je potrebno znati **sigurnosni ključ** ili posjedovati neku vrstu certifikata (*kriptiranje koji se najčešće koristi u poslovne svrhe*).
+Tijekom godina razvoja IEEE 802.11 protokola, nastale su različite verzije zaštite mreže za privatne i poslovne korisnike.
+
 ## WEP zaštita
+
+**WEP (Wireless Encryption Protocol)** je protokol za zaštitu bežičnih mreža, opisan IEEE standardom 802.11b.
+WEP zaštita odnosi se na fizički i sloj podatkovne veze (OSI model računalne mreže) u
+računalnoj mreži, a temelji se na enkripciji podataka između krajnjih točaka.
+WEP koristi kriptografske ključeve standardnih duljina od 64, 128 i 256 bita. Optimalna duljina ključa je ona koja onemogućuje
+njegovo otkrivanje (što veća), a da se enkripcija istovremeno može obaviti što brže (što manja).
+Kriptiranje i dekriptiranje podatka obavlja se tajnim ključem u krajnjim točkama, a protokol uključuje
+provjeru integriteta poruke i provjeru identiteta korisnika, odnosno metode kojima se može utvrditi je li
+poruka bila mijenjana između izvorišta i odredišta.
+
+WEP enkripcija koristi **RC4 sustav** za kriptiranje podatkovnih tokova, koji na temelju ključa stvara
+*nasumičan niz* kojim se pomoću **XOR funkcije** kriptira ulazna poruka. Poznavanjem ključa moguće je upotrebom iste funkcije niz dekriptirati na odredištu. 
+
+Slaba točka WEP protokola upravo je enkripcija podataka. Ukoliko napadač ima mogućnost prisluškivanja mreže te zna kako se stvara niz u RC4
+algoritmu, kriptoanalizom može otkriti WEP ključ. Kako bi se izbjeglo ponavljanje nizova kojima se
+kriptiraju podaci uz ključ se u RC4 poruci šalje i proizvoljni **inicijalizacijski vektor (IV)** veličine 24 bita. 
+Mreže koje imaju veliki promet moraju generirati veliki broj inicijalizacijskih vektora, pa postoji velika
+vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnošću od 50% nakon 5000 kriptiranih paketa). 
+
+![WEP](/assets/rm/wifi/wep-1.png)
 
 > **Zanimljivost**
 >
@@ -222,6 +252,28 @@ koristi mreža.
     <li><a href="https://www.digitaltrends.com/computing/what-is-wi-fi/"><cite>What is Wifi?</cite>, Digital Trends</a>, pregledano 20.05.2020.</li>
     <li><a href="https://keshavdulal.github.io/bscit-network-security-notes/bscit-ns-u5-wireless-security.html"><cite>Wifi Security Notes</cite>, BSCIT</a>, pregledano 23.05.2020.</li>
     <li><a href="https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-6"><cite>Discover Wifi 6</cite>, WiFi Alliance</a>, pregledano 23.05.2020.</li>
+</ol>
+
+### WEP
+
+<ol>
+  <li><a href="http://download.aircrack-ng.org/wiki-files/doc/A_Key_Recovery_Attack_on_the_wep.pdf"><cite>A Key Recovery Attack on the WEP</cite>, Aircrack-ng</a>, pregledano 30.05.2020.</li>
+  <li><a href="http://www.isaac.cs.berkeley.edu/isaac/mobicom.pdf"><cite>Intercepting Mobile Communications: The Insecurity of 802.11</cite></a>, Nikita Borisov, Ian Goldberg, David Wagner, pregledano 30.05.2020.</li>
+  <li><a href="http://www.scs.stanford.edu/~sorbo/bittau-wep-slides.pdf"><cite>The Final Nail in WEP’s Coffin</cite> (prezentacija)</a>, Andrea Bittau, Mark Handley, Joshua Lackey, pregledano 30.05.2020.</li>
+  <li><a href="https://www.aircrack-ng.org/doku.php?id=interactive_packet_replay"><cite>Aireplay-ng - Interactive packet replay</cite>, Aircrack-ng</a>, pregledano 30.05.2020.</li>
+  <li><a href="https://mentor.ieee.org/802.11/dcn/00/11-00-0362-00-000e-unsafe-at-any-key-size-an-analysis-of-the-wep-encapsulation.doc"><cite>Unsafe at any key size; An analysis of the WEP encapsulation</cite>, Jesse R. Walker (Intel)</a>, pregledano 31.05.2020.</li>
+</ol>
+
+### WPA/WPA2
+
+<ol>
+  <li><a href="https://www.cert.hr/wp-content/uploads/2009/06/CCERT-PUBDOC-2009-06-267.pdf"><cite>WPA2 zaštita, CCERT-PUBDOC-2009-06-267</cite>, Aircrack-ng</a>, pregledano 30.05.2020.</li>
+</ol>
+
+### WPS
+
+<ol>
+  <li><a href="https://www.wi-fi.org/download.php?file=/sites/default/files/private/Wi-Fi_Simple_Configuration_Technical_Specification_v2.0.5.pdf"><cite>Wi-Fi Simple Configuration, Technical Specification, v2.0.5</cite>, WiFi Alliance</a>, pregledano 30.05.2020.</li>
 </ol>
 
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" href="https://mario-kopjar.from.hr/racunalne-mreze/wifi-security/"><span rel="dct:title">Sigurnost bezicnih mreza</span></a> by <a rel="cc:attributionURL" href="https://mario-kopjar.from.hr"><span rel="cc:attributionName">Mario Kopjar</span></a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0<img style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-by_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-nc_icon.svg" /></a></p>

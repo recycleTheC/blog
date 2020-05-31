@@ -20,4 +20,5 @@ permalink: /online-nastava/
     <li><a href="racunalne-mreze/lv-tcp-udp/"><strong>Laboratorijska vježba:</strong> Protokoli transportnog sloja (TCP i UDP)</a></li>
     <li><a href="racunalne-mreze/udp-protokol/">UDP protokol</a></li>
     <li><a href="racunalne-mreze/acl/">ACL</a></li>
+    <li><a href="racunalne-mreze/wan/">WAN terminologija i tehnologija</a></li>
 </ul>

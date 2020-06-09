@@ -44,6 +44,25 @@ blockquote{
   font-style: normal !important;
 }
 
+.center-img
+{
+    margin: 0 auto;
+    display: block;
+}
+
+.tool {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  text-decoration: none;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
 </style>
 
 <div class="alert alert-danger text-center">
@@ -402,6 +421,40 @@ Koraci CCMP dekripcije:
 <p class="alert alert-danger text-center"><strong><i>Zaključak</i>: izbjegavajte korištenje WPA/WPA2 ključeva koji se sastoje samo od brojeva
 </strong></p>
 
+### Probijanje WPA2 zaštite - Dictionary napad
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}</style><div class='embed-container' style="margin-bottom: 1rem;"><iframe src="https://www.youtube-nocookie.com/embed/fBw181LApuM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+> **Opis napada**
+> 
+> Ovaj napad je izveden pomoću alata **Wifite** kao i prethodni napad, jedina razlika je u načinu otkrivanja ključa. Sada se pomoću
+> rječnika često korištenih ključeva pokušava otkriti koji ključ odgovara ključu koji koristi mreža.
+
+1. korak - pokrenuti **wifite2**
+
+    `sudo wifite --kill`
+
+2. korak - odabrati željenu mrežu
+
+3. korak - pričekati da se izvrše automatski napadi
+
+4. korak - nakon što **wifite2** završi s *napadom pomoću rječnika*, pretvoriti snimljene pakete u format pogodan za alat **Hashcat**
+
+    <a href="https://hashcat.net/cap2hccapx/">Hashcat WPA/WPA2 pcap converter</a>
+
+    Preuzetu datoteku spremiti u direktorij.
+
+5. korak - dekriptirati ključ pomoću alata **Hashcat**
+   
+    - postupak za Windows OS (AMD64):
+    
+    `hashcat64 -m 2500 -a0 capture.hccapx rockyou.txt`
+
+      - `-m 2500` => način rada za WPA/WPA2 dekriptiranje
+      - `-a0` => Dictironary napad
+      - `capture.hccapx` => pretvorena datoteka koja sadrža WPA Handshake
+      - `rockyou.txt` => *Dictionary* - rječnik
+
 ## WPS
 
 **WPS** (*WiFi Protected Setup*) je bežični standard za uspostavljanje veze između usmjernika ili pristupne točke i bežičnih uređaja predstavljen je početkom 2007. s ciljem omogućavanja kućnim korisnicima brzo postavljanje sigurnosnih postavki za povezivanje bežičnih uređaja u mreži.
@@ -410,7 +463,32 @@ Dvije osnovne metode za povezivanje pomoću **WPS**-a: unos PIN-a, obvezna metod
 
 **WPS** je odlična mogućnost za povezivanje, ali njegova izvedba sa pogleda sigurnosti je vrlo loša jer jer vrlo je ranjiv kroz različite napade. Postoji više aplikacija koje iskorištavaju propuste u njegovim slabim algoritmima, tako da je moguće pomoću tih ranjivosti dobiti ključ mreže.
 
-Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji određenih proizvođača koji su ranjivi na Pixie-Dust napad.
+**WPS** protokol tijekom razmjene informacija (poruka **M4**) o PIN-u (8 znamenki) za pristup, prvo provjerava 1. polovicu primljenog PIN-a, i šalje poruku je li ta polovica ispravna (**NACK**) ili ne (**M5**). Kako se 2. polovica PIN-a sastoji od 4 znamenke (od kojih je zadnja polje za provjeru), nakon što napadač sazna 1. polovicu PIN-a (10.000 kombinacija), vrlo lako će izračunati i 2. polovicu za koju mu treba samo 1.000 pokušaja jer je zadnja, 8. znamenka kao polje provjere smanjila broj potrebnih kombinacija. Kada napadač
+konačno posjeduje cijeli PIN za pristup, zatražit će od usmjernika informacije o konfiguraciji mreže koja sadržava i ključ za pristup mreži.
+
+![WPS](/assets/rm/wifi/wps.png){: .center-img }
+
+Ovakav **brute-force** algoritam uređaji najčešće nisu zaustavljali niti prepoznali, tako da napadač sazna ključ mreže kroz nekoliko sati.
+U nekim slučajevima, nakon što je napadač saznao ključ mreže, usmjernik bi bio "onesposobljen" za normalan rad i trebalo ga je ponovno
+pokrenuti.
+
+Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji određenih proizvođača koji su ranjivi na **Pixie Dust** napad.
+
+**Pixie Dust** napad je moguće izvesti samo na uređajima nekih proizvođača koji su loše implementirali sigurnosne mehanizme za WPS protokol. Pomoću njega napadači su uspjeli kroz nekoliko minuta saznati ključ za pristup mreži.
+
+### Probijanje WPS protokola
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}</style><div class='embed-container' style="margin-bottom: 1rem;"><iframe src="https://www.youtube-nocookie.com/embed/6SJNaFPB0OM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+> **Opis napada**
+> 
+> Ovaj napad je izveden pomoću alata **Wifite** koji automatski obavlja različite napade koje može izvesti uz pomoć drugih alata
+> koji su instalirani u sklopu Kali Linux OS-a. Kako je ovaj napad ciljan na WPS prokotol, korišten je alat **reaver** koji obavlja
+> **"brute force"** ili **Pixie Dust** napad kako je opisano ranije u članku.
+> 
+> Kako **reaver** nije uspio pronaći ključ putem WPS napada i uređaj je zaključao povezivanje WPS protokolom, zaključujem 
+> da moj kućni usmjernik nije ranjiv na trenutno dostupne napade, što znači da je 
+> njegov <abbr class="tool" title="Huawei Technologies Co., Ltd. 😉">proizvođač</abbr> **uspješno** ugradio sigurnosne mehanizme.
 
 ## Zaključak
 
@@ -418,9 +496,9 @@ Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji odr
   <p><strong>Vrlo važno, upamtiti i primijeniti:</strong></p>
   <ol>
     <li>
-    Promijenite zadano ime pristupne točke ili ga sakrijte (za naprednije korisnike).
+    Promijenite zadano ime pristupne točke ili ga <abbr class="tool" title="za napredne korisnike">sakrijte</abbr>:
     <ul>
-      <li>Ako je zadano ime mreže jedno od slijedećih, odmah ga je potrebno promijeniti:</li>
+      <li>Ako je zadano ime mreže <strong>jedno od slijedećih</strong>, odmah ga je potrebno <strong>promijeniti</strong>:</li>
       <ul>
         <li><strong>default</strong> - najčešće korišteno ime</li>
         <li><strong>naziv ili model pristupne točke ili usmjernika</strong> (npr. ZyXEL, Linksys i sl.)</li>
@@ -437,10 +515,10 @@ Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji odr
         <li>samo ime, prezime ili slično</li>
         <li>JMBG ili OIB</li>
         <li>datum rođenja (bez znakova, samo znamenke)</li>
-        <li><strong>naziv WiFi pristupne točke - ovo nije nikakva zaštita</strong></li>
+        <li><strong>naziv pristupne točke - ovo nije nikakva zaštita 😟</strong></li>
       </ul>
     </li>
-    <li>Isključite WPS ako ga ne koristite (pogotovo ako niste sigurni je li pristupna točka ranjiva)</li>
+    <li><strong>Isključite WPS</strong> ako ga ne koristite (<strong>posebno</strong> ako niste sigurni je li pristupna točka ranjiva)</li>
     <li>Ne dijelite WPA2 ključ s nepouzdanim osobama 😉</li>
   </ol>
 </div>
@@ -481,6 +559,11 @@ Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji odr
 <ol>
   <li><a href="https://www.wi-fi.org/download.php?file=/sites/default/files/private/Wi-Fi_Simple_Configuration_Technical_Specification_v2.0.5.pdf"><cite>Wi-Fi Simple Configuration, Technical Specification, v2.0.5</cite>, WiFi Alliance</a>, pregledano 30.05.2020.</li>
   <li><a href="https://sviehb.files.wordpress.com/2011/12/viehboeck_wps.pdf"><cite>Brute forcing Wi-Fi Protected Setup</cite>, Stefan Viehböck</a>, pregledano 30.05.2020.</li>
+  <li><a href="https://forums.kali.org/showthread.php?24286-WPS-Pixie-Dust-Attack-(Offline-WPS-Attack)"><cite>WPS Pixie Dust Attack (Offline WPS Attack)</cite></a>, pregledano 09.06.2020.</li>
+  <li><a href="https://github.com/t6x/reaver-wps-fork-t6x"><cite>Reaver</cite></a>, pregledano 09.06.2020.</li>
 </ol>
+
+<p class="alert alert-success text-center"><strong>Tijekom istraživanja za članak nije stradao niti jedan mrežni uređaj!
+</strong>😉</p>
 
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" href="https://mario-kopjar.from.hr/racunalne-mreze/wifi-security/"><span rel="dct:title">Sigurnost bezicnih mreza</span></a> by <a rel="cc:attributionURL" href="https://mario-kopjar.from.hr"><span rel="cc:attributionName">Mario Kopjar</span></a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0<img style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-by_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-nc_icon.svg" /></a></p>

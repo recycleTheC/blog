@@ -30,6 +30,12 @@ toc: true
   border-color: #f5c6cb;
 }
 
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
 .text-center {
   text-align: center !important;
 }
@@ -256,9 +262,82 @@ vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnoš
 
     Ako nije, program ispisuje da se ponovni metoda za pribavljanje paketa sa većim brojem paketa.
 
-    <p class="alert alert-danger"><strong>Preporuka: izbjegavajte korištenje WEP zaštite i mreže koje ju koriste!</strong></p>
+<p class="alert alert-danger text-center"><strong><i>Zaključak</i>: izbjegavajte korištenje WEP zaštite i mreže koje ju koriste!</strong></p>
 
 ## WPA / WPA2 zaštita
+
+**WPA** (*Wi-Fi Protected Access*) je sustav zaštite bežičnih mreža, opisan u okviru IEEE 802.11i
+standarda, koji omogućuje enkripciju podataka i provjeru identiteta korisnika. Kao i WEP, i WPA
+koristi **RC4** sustav za kriptiranje podataka i to uz **128-bitni ključ** i **48-bitni inicijalizacijski vektor (IV)**.
+Prednost nad WEP standardom je u korištenju **TKIP protokola** (*Temporal Key Integrity Protocol*), koji dinamički mijenja 
+ključeve za vrijeme korištenja sustava. Kombinacijom dugog **inicijalizacijskog vektora (IV)**
+i **TKIP protokola** sustav se lakše brani od napada kakvi se koriste za otkrivanje ključa kod **WEP** protokola. 
+Slabosti **WEP** zaštite ležale su u premalom broju mogućih inicijalizacijskih vektora koji su uz isti tajni ključ davali
+nesigurne nizove podataka -> analizom tih nizova bilo moguće otkriti vrijednosti ključa. Na ovaj
+način novi algoritam napada gotovo je nemoguće iskoristiti.
+
+![WPA](/assets/rm/wifi/tkip.png)
+
+**WPA** protokol također donosi i sigurniji sustav provjere poruke u odnosu na **CRC** (*Cyclic Redundancy Check*) sustav koji
+se koristi kod **WEP** protokola. Kod **CRC** provjere napadač može promijeniti sastav poruke koja se šalje i
+vratiti vrijednost CRC-a na izvornu, čak i bez poznavanja ključa kojim je poruka kriptirana. Sigurniji
+način provjere je korištenje **MIC** (*Message Integrity Code*) koji u **WPA** uključuje
+brojač okvira čime se isključuje mogućnost promjene sastava poruka.
+
+U studenom 2008. godine otkrivena je **ranjivost** **TKIP protokola** koju napadač može iskoristiti za
+otkrivanje niza bitova kojima je kriptiran određeni paket. Napad je pritom moguće izvesti samo na
+kratkim porukama većinom poznatog sadržaja kao što su **ARP** (*Address Resolution Protocol*)
+poruke za otkrivanje MAC adrese na temelju mrežne adrese uređaja.
+
+<hr>
+
+**WPA2** je najrašireniji sustav zaštite bežičnih lokalnih mreža, a razvijen je u okviru Wi-Fi Alliance udruženja 2004. godine. **WPA2** je inačica WPA protokola nastalog u okviru iste organizacije. **WPA2** se kao i WPA temelji na IEEE 802.11i
+standardu i uključuje sve mehanizme koje koristi **WPA** s time da uvodi i dodatna poboljšanja, kao što je
+CCMP enkripcija. 
+
+**WPA** protokol sadržavao je i **EAP** (*Extensible Authentication Protocol*) autentifikacije.
+Ona je zadržana i kao dio **WPA2** protokola. **EAP** definira format poruka koje se izmjenjuju prilikom
+bežične autentifikacije. Protokoli koji koriste **EAP** metodu moraju definirati način na koji će se te
+poruke enkapsulirati u podatkovne pakete. Ova metoda autentifikacije izvodi se na *sloju podatkovne veze*
+kao **PPP** (*Point-to-Point Protocol*) protokol. Prilikom autentifikacije se izvodi i razmjena ključeva pomoću
+kojih će se kriptirati podaci koji se šalju.
+WAP2 autentifikacije izvodi se dinamičkim protokolom koji uključuje **razmjenu u četiri koraka** (**Handshake**) – svi potrebni podaci kojima se jamči sigurnost kasnije komunikacije razmjenjuju se u četiri poruke.
+Nakon što se EAP autentifikacijom razmjeni **PMK** (*Pairwise Master Key*) ključ, on se koristi za razmjenu **PTK**
+(*Pairwise Transient Key*) ključeva koji se zatim mogu koristiti za enkripciju...
+
+Koraci CCMP enkripcije:
+
+1. podijeliti sadržaj na blokove
+2. prepisati zaglavlje i broj paketa u izlaznu poruku
+3. pomoću AES algoritma i brojača kriptirati blokove i zapisati ih u izlaznu poruku
+4. pomoću AES algoritma i inicijalizacijskog vektora izračunati MIC i zapisati ga iza podataka u izlaznu poruku
+5. izračunati niz za provjeru okvira (FCS) i zapisati ga na kraj poruke.
+
+Koraci CCMP dekripcije:
+
+1. pročitati zaglavlje, broj paketa i FCS broj
+2. provjeriti FCS paketa
+3. podijeliti sadržaj na blokove
+4. pomoću brojača i AES-a dekriptirati blokove
+5. pomoću AES-a i inicijalizacijskog vektora izračunati MIC i usporediti s onim zapisanim u paketu 
+
+**WPA** i **WPA2** protokoli mogu se koristiti na dva načina:
+
+1. **PSK** (*Pre-Shared Key*)
+   - 256-bitni ključ
+   - razmjena ključeva između pristupne točke i klijenata 
+   - namijenjen je privatnim mrežama ili manjim poslovnim mrežama
+   - jednostavniji za izvedbu (ne zahtjeva autentifikacijski poslužitelj)
+   - ključ može biti niz od 8 do 63 ASCII znakova
+     - za 256 znakova postoji ~10<sup>78</sup> mogućih kombinacija, ključ je nemoguće izračunati iz *hash* vrijednosti u realnom vremenu
+       - ukoliko korisnik unese predvidljive nizove znakova (ili samo znamenke), tada napadačima otkrivanje ključa olakšava **„brute force” napad** kojim se provjeravaju sve moguće kombinacije nizova znakova i znamenki
+  
+2. **Enterprise**
+   
+   - podrazumijeva zaseban ključ između pristupne točke i svakog klijenta
+   - svaki uređaj u mreži mora autentificirati (identificirati i potvrditi identitet lozinkom)
+   - održavanje takvog sustava zahtijeva mnogo više vremena
+   - autentifikacijski poslužitelj koristi **RADIUS** (*Remote Authentication Dial In User Service*) protokol za centraliziranu autentifikaciju 
 
 > **Zanimljivost**
 >
@@ -320,11 +399,51 @@ vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnoš
 
 8. korak - prikazati će se dekriptirani WPA/WPA2 ključ
 
+<p class="alert alert-danger text-center"><strong><i>Zaključak</i>: izbjegavajte korištenje WPA/WPA2 ključeva koji se sastoje samo od brojeva
+</strong></p>
+
 ## WPS
 
-WPS je odlična ideja, ali njegova izvedba nije dobra. Postoji više aplikacija koje iskorištavaju propuste
-u njegovim slabim algoritmima, tako da je moguće pomoću tih ranjivosti dobiti ključ mreže, bez obzira koju zaštitu
-koristi mreža.
+**WPS** (*WiFi Protected Setup*) je bežični standard za uspostavljanje veze između usmjernika ili pristupne točke i bežičnih uređaja predstavljen je početkom 2007. s ciljem omogućavanja kućnim korisnicima brzo postavljanje sigurnosnih postavki za povezivanje bežičnih uređaja u mreži.
+
+Dvije osnovne metode za povezivanje pomoću **WPS**-a: unos PIN-a, obvezna metoda za sve WPS certificirane uređaje; pritiskom na stvarnu tipku (*Push – Button* - **PBC** ) na usmjerniku ili kroz simuliranu tipku u softveru. Informacije o mreži se razmjenjuju pomoću **EAP** protokola. **WPS** ne pruža podršku za bežične mreže koje koriste zastarjeli **WEP** protokol, već samo novije WPA/WPA2 protokole.
+
+**WPS** je odlična mogućnost za povezivanje, ali njegova izvedba sa pogleda sigurnosti je vrlo loša jer jer vrlo je ranjiv kroz različite napade. Postoji više aplikacija koje iskorištavaju propuste u njegovim slabim algoritmima, tako da je moguće pomoću tih ranjivosti dobiti ključ mreže.
+
+Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji određenih proizvođača koji su ranjivi na Pixie-Dust napad.
+
+## Zaključak
+
+<div class="alert alert-warning">
+  <p><strong>Vrlo važno, upamtiti i primijeniti:</strong></p>
+  <ol>
+    <li>
+    Promijenite zadano ime pristupne točke ili ga sakrijte (za naprednije korisnike).
+    <ul>
+      <li>Ako je zadano ime mreže jedno od slijedećih, odmah ga je potrebno promijeniti:</li>
+      <ul>
+        <li><strong>default</strong> - najčešće korišteno ime</li>
+        <li><strong>naziv ili model pristupne točke ili usmjernika</strong> (npr. ZyXEL, Linksys i sl.)</li>
+        <li>nazivi kao <strong>moja mreza, mreza, wifi i sl.</strong></li>
+      </ul>
+      <li>Ime koje je unaprijed postavio operater može se koristiti samo ako sadržava nasumične znakove ili brojeve</li>
+    </ul>
+    </li>
+    <li>Koristite <strong>WPA2-PSK ili WPA2-Enterprise</strong> zaštitu WiFi mreže</li>
+    <li>Za WPA2 ključ koristite niz od <strong>najmanje 8 znakova, koji nisu predvidljivi ili česti</strong></li>
+    <li>
+      <strong>Nepreporučljivi</strong> nizovi za ključ:
+      <ul>
+        <li>samo ime, prezime ili slično</li>
+        <li>JMBG ili OIB</li>
+        <li>datum rođenja (bez znakova, samo znamenke)</li>
+        <li><strong>naziv WiFi pristupne točke - ovo nije nikakva zaštita</strong></li>
+      </ul>
+    </li>
+    <li>Isključite WPS ako ga ne koristite (pogotovo ako niste sigurni je li pristupna točka ranjiva)</li>
+    <li>Ne dijelite WPA2 ključ s nepouzdanim osobama 😉</li>
+  </ol>
+</div>
 
 ## Izvori
 
@@ -350,7 +469,7 @@ koristi mreža.
 ### WPA/WPA2
 
 <ol>
-  <li><a href="https://www.cert.hr/wp-content/uploads/2009/06/CCERT-PUBDOC-2009-06-267.pdf"><cite>WPA2 zaštita, CCERT-PUBDOC-2009-06-267</cite>, Aircrack-ng</a>, pregledano 30.05.2020.</li>
+  <li><a href="https://www.cert.hr/wp-content/uploads/2009/06/CCERT-PUBDOC-2009-06-267.pdf"><cite>WPA2 zaštita, CCERT-PUBDOC-2009-06-267</cite>, CARNet</a>, pregledano 30.05.2020.</li>
   <li><a href="https://www.renderlab.net/projects/WPA-tables/"><cite>WPA tables</cite>, Renderlab</a>, pregledano 30.05.2020.</li>
   <li><a href="http://dl.aircrack-ng.org/breakingwepandwpa.pdf"><cite>Practical attacks against WEP and WPA</cite>, Martin Beck, Erik Tews</a>, pregledano 30.05.2020.</li>
   <li><a href="https://github.com/joswr1ght/cowpatty"><cite>coWPAtty: WPA2-PSK Cracking</cite>, Joshua Wright</a>, pregledano 31.05.2020.</li>

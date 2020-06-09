@@ -16,7 +16,31 @@ toc: true
   -webkit-overflow-scrolling: touch;
 }
 
+.alert {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
 </style>
+
+<div class="alert alert-danger text-center">
+  <strong>UPOZORENJE!</strong>
+  <p>Svi postupci opisani u ovom članku i videozapisima služe isključivo u edukativne i informativne svrhe!
+  Ako ih odlučite koristiti za nezakonite radnje, koristite ih na vlastitu odgovornost. <strong>Zloupotreba je kažnjiva!</strong></p>
+</div>
 
 # Bežične mreže - WiFi
 
@@ -151,6 +175,11 @@ vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnoš
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src="https://www.youtube-nocookie.com/embed/svCa25vaN8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
+> **Opis napada**
+> 
+> Ovaj napad se bazira na interaktivnom prosljeđivanju posebnih ARP paketa koji omogućavaju da pristupna točka generira
+> nove inicijalizacijske vektore (IV). Tijekom odašiljanja takvih paketa, biti će pokrenuto snimanje paketa koje pošalje
+> pristupna točka. Iz prikupljenih paketa je moguće izračunati ključ za pristup i enkripciju podataka.
 
 1. korak - pokrenuti airmon-ng i ispisati popis dostupnih wlan sučelja
 
@@ -223,12 +252,13 @@ vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnoš
 
     Ako nije, program ispisuje da se ponovni metoda za pribavljanje paketa sa većim brojem paketa.
 
+    <p class="alert alert-danger"><strong>Preporuka: izbjegavajte korištenje WEP zaštite i mreže koje ju koriste!</strong></p>
 
 ## WPA / WPA2 zaštita
 
 > **Zanimljivost**
 >
-> <a href="https://www.nickkusters.com/en/Services/Thomson-SpeedTouch" target="_blank">Primjer 1</a>: Postoje web aplikacije u koje je 
+> Postoje <a href="https://www.nickkusters.com/en/Services/Thomson-SpeedTouch" target="_blank">web aplikacije</a> u koje je 
 > moguće unijeti zadani naziv WiFi mreže, a aplikacija vraća 1 ili više kombinacija ključeva
 > koje mogu odgovarati tom usmjerniku. Kako je proizvođač koristio slabe algoritme za generiranje ključeva, moguće ih je izračunati
 > posebnim algoritmom iz naziva WiFi mreže. Unatoč tome što korisnik koristi WPA ili čak WPA2 zaštitu, ključ je moguće izračunati.

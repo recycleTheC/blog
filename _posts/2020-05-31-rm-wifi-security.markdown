@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Računalne mreže - Sigurnost bežičnih mreža (draft)"
+title:  "Računalne mreže - Sigurnost bežičnih mreža"
 date:   2020-05-31 05:45:00 +0100
-categories: racunalne-mreze wifi wep wpa wpa2 wpa3 wps
+categories: racunalne-mreze wifi wep wpa wpa2 wps
 permalink: /racunalne-mreze/wifi-security/
 toc: true
 ---

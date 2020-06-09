@@ -34,6 +34,10 @@ toc: true
   text-align: center !important;
 }
 
+blockquote{
+  font-style: normal !important;
+}
+
 </style>
 
 <div class="alert alert-danger text-center">
@@ -173,7 +177,7 @@ vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnoš
 
 ### Probijanje WEP zaštite
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src="https://www.youtube-nocookie.com/embed/svCa25vaN8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container' style="margin-bottom: 1rem;"><iframe src="https://www.youtube-nocookie.com/embed/svCa25vaN8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 > **Opis napada**
 > 
@@ -192,7 +196,7 @@ vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnoš
 
     `sudo airmon-ng start wlan0`
 
-3. korak - ispisati sve WiFi mreže koje lovi mrežna kartica
+3. korak - ispisati sve WiFi mreže koje hvata mrežna kartica
 
     `sudo airodump-ng wlan0mon`
 
@@ -263,9 +267,58 @@ vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnoš
 > koje mogu odgovarati tom usmjerniku. Kako je proizvođač koristio slabe algoritme za generiranje ključeva, moguće ih je izračunati
 > posebnim algoritmom iz naziva WiFi mreže. Unatoč tome što korisnik koristi WPA ili čak WPA2 zaštitu, ključ je moguće izračunati.
 
-### Probijanje WPA2 zaštite
+### Probijanje WPA2 zaštite - Brute Force napad
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src="https://www.youtube-nocookie.com/embed/d8N4JDdrCUg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}</style><div class='embed-container' style="margin-bottom: 1rem;"><iframe src="https://www.youtube-nocookie.com/embed/d8N4JDdrCUg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+> **Opis napada**
+> 
+> Ovaj napad je izveden pomoću alata **Wifite** koji automatski obavlja različite napade koje može izvesti uz pomoć drugih alata
+> koji su instalirani u sklopu Kali Linux OS-a. Napad koji je u ovom slučaju bio uspješan je **WPA Handshake Capture** napad koji
+> je moguće izvesti **samo** ako je barem **1 klijent** povezan na pristupnu točku. Tijekom izvođenja, klijentu šalje tzv. **Deauth**
+> pakete, koje pristupne točke šalju kada se klijent ponovno mora identificirati i proći autentifikaciju.
+> Alati tada *slušaju* i prikupljaju **Handshake**  pakete (postupak u kojem pristupna točka i klijent razmijenjuju 
+> informacije potrebne za sigurnu, enkriptiranu komunikaciju) i kada prikupi dovoljno paketa, pokušat će deriptirati WPA/WPA2 ključ.
+>
+> Napomena: klijentu kojem alat šalje **Deauth** pakete će privremeno izgubiti vezu s Internetom, pa je ovaj napad **vrlo uočljiv**.
+> 
+> Nakon što se prikupi dovoljan broj paketa, moguće je dekriptirati ključ pomoću **Hashcat** alata. **Hashcat**, kako mu i ime kaže,
+> je alat koji radi s *hash* vrijednostima, a WPA/WPA2 ključ je enkriptiran pomoću posebnog algoritma i u paketima se prenosi kao *hash*
+> vrijednost -> ključ se izračunava, za što je potrebna veća procesorska snaga pa se umjesto CPU-a koristi GPU koji izračun može
+> obaviti brže nego CPU.
+
+1. korak - pokrenuti airmon-ng i ispisati popis dostupnih wlan sučelja
+
+    `sudo airmon-ng`
+
+2. korak - **Ako postoje procesi koji koriste karticu (ispiše se upozorenje u prethodnom koraku), ugasiti ih**
+    
+    `sudo airmon-ng check kill `
+
+3. korak - pokrenuti alat **wifite2**
+
+    `sudo wifite`
+
+4. korak - odabrati željenu mrežu
+5. korak - pričekati da se izvrše automatski napadi
+6. korak - nakon što **wifite2** završi s *napadom pomoću rječnika*, pretvoriti snimljene pakete u format pogodan za alat **Hashcat**
+
+    <a href="https://hashcat.net/cap2hccapx/">Hashcat WPA/WPA2 pcap converter</a>
+
+    Preuzetu datoteku spremiti u direktorij.
+
+7. korak - dekriptirati ključ pomoću alata **Hashcat**
+   
+    - postupak za Windows OS (AMD64):
+    
+    `hashcat64 -m 2500 -a3 capture.hccapx ?d?d?d?d?d?d?d?d`
+
+      - `-m 2500` => način rada za WPA/WPA2 dekriptiranje
+      - `-a3` => brute force napad
+      - `capture.hccapx` => pretvorena datoteka koja sadrža WPA Handshake
+      - `?d?d?d?d?d?d?d?d` => predložak po kojem će se "pogađati" ključ (8 znamenki)
+
+8. korak - prikazati će se dekriptirani WPA/WPA2 ključ
 
 ## WPS
 

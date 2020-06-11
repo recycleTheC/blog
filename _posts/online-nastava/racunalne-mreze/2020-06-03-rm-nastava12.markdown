@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-06-03 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/network/
+exclude: true
+---
+
+# Laboratorijska vježba: Konfiguracija mreže
+
+<img src="https://drive.google.com/uc?export=view&id=1_z83Ifjw3jw3z6b2NHJpRLqqsqnDOBtk">
+<img src="https://drive.google.com/uc?export=view&id=1a4GQ9O-8VRlylzS_ZJwMoHpr61c2slRO">
+<img src="https://drive.google.com/uc?export=view&id=1a6PdbORK_JlA9MTkyF9gANvExAaw_w_P">
+<img src="https://drive.google.com/uc?export=view&id=1a6ZmTeGwng1eE-KBbsOvNond7OvttxhD">

@@ -22,4 +22,7 @@ permalink: /online-nastava/
     <li><a href="racunalne-mreze/acl/">ACL</a></li>
     <li><a href="racunalne-mreze/lv-acl/"><strong>Laboratorijska vježba:</strong> Liste pristupa (ACL) na usmjerniku</a></li>
     <li><a href="racunalne-mreze/wan/">WAN terminologija i tehnologija</a></li>
+    <li><a href="racunalne-mreze/network/"><strong>Laboratorijska vježba:</strong> Konfiguracija mreže</a></li>
+    <li><a href="racunalne-mreze/ppp-protokol/">PPP protokol</a></li>
+    <li><a href="racunalne-mreze/dsl/">DSL</a></li>
 </ul>

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Računalne mreže - Samostalni rad"
-date:   2019-05-13 23:59:59 +0100
+date:   2019-05-13 +0100
 categories: racunalne-mreze samostalni-rad
 permalink: /online-nastava/racunalne-mreze/acl/
 exclude: true

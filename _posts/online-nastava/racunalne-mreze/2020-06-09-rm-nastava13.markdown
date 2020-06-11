@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Računalne mreže - Samostalni rad"
+date:   2019-06-09 +0100
+categories: racunalne-mreze samostalni-rad
+permalink: /online-nastava/racunalne-mreze/ppp-protokol/
+exclude: true
+---
+
+# PPP protokol
+
+<img src="https://drive.google.com/uc?export=view&id=1_9adtWUVconuDBDCxtnBxEOjqQtghzVf">
+<img src="https://drive.google.com/uc?export=view&id=1_ANvYVTJ2KK_TFH7WYZISz5_nqX1zeyL">
+<img src="https://drive.google.com/uc?export=view&id=1_Imufe6WcF2HThSTUl_5Wf7p3gei6JDG">

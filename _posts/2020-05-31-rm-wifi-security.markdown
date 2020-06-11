@@ -155,7 +155,7 @@ djeluju koristeći jednake protokole za pristup mreži.
 
 ***BSS*** može biti izoliran, ili povezan na *okosnicu* **distribucijskog sustava** (***DS***) kroz **pristupnu točku** (***AP***)
 
-Slijedeći izrazi se koriste prilikom dijagnostike ili testiranja ranjivosti bežičnih mreža u raznim aplikacijama.
+Sljedeći izrazi se koriste prilikom dijagnostike ili testiranja ranjivosti bežičnih mreža u raznim aplikacijama.
 
 **BSSID** - jedinstveni identifikator mreže, MAC adresa pristupne točke
 
@@ -179,7 +179,7 @@ poruka bila mijenjana između izvorišta i odredišta.
 WEP enkripcija koristi **RC4 sustav** za kriptiranje podatkovnih tokova, koji na temelju ključa stvara
 *nasumičan niz* kojim se pomoću **XOR funkcije** kriptira ulazna poruka. Poznavanjem ključa moguće je upotrebom iste funkcije niz dekriptirati na odredištu. 
 
-Slaba točka WEP protokola upravo je enkripcija podataka. Ukoliko napadač ima mogućnost prisluškivanja mreže te zna kako se stvara niz u RC4
+Slaba točka WEP protokola upravo je enkripcija podataka. Ako napadač ima mogućnost prisluškivanja mreže te zna kako se stvara niz u RC4
 algoritmu, kriptoanalizom može otkriti WEP ključ. Kako bi se izbjeglo ponavljanje nizova kojima se
 kriptiraju podaci uz ključ se u RC4 poruci šalje i proizvoljni **inicijalizacijski vektor (IV)** veličine 24 bita. 
 Mreže koje imaju veliki promet moraju generirati veliki broj inicijalizacijskih vektora, pa postoji velika
@@ -194,7 +194,7 @@ vjerojatnost ponavljanja istog niza (npr. isti niz ponovit će se s vjerojatnoš
 > veliki sigurnosni rizik.
 >
 > Neki su telekom operateri, odnosno njihova služba za korisnike, u vrijeme dok je još bio aktualan JMBG 
-> (jedinstveni matični broj građana) korisnicima "preporučali" da za WEP ključ postave upravo svoj JMBG, jer je
+> (jedinstveni matični broj građana) korisnicima "preporučivali" da za WEP ključ postave upravo svoj JMBG, jer je
 > odgovarao zahtjevima za duljinu ključa od 13 znakova (128 bitni WEP ključ). Kako su računala vrlo spretna sa brojevima,
 > takav ključ im unatoč svojoj duljini nije predstavljao veliki problem. Tako je napadač osim pristupa vašoj mreži,
 > dobio i uvid u JMBG (<a href ="https://hr.wikipedia.org/wiki/Mati%C4%8Dni_broj_gra%C4%91ana" target="_blank">koji je o vama otkrivao
@@ -346,10 +346,10 @@ Koraci CCMP dekripcije:
    - 256-bitni ključ
    - razmjena ključeva između pristupne točke i klijenata 
    - namijenjen je privatnim mrežama ili manjim poslovnim mrežama
-   - jednostavniji za izvedbu (ne zahtjeva autentifikacijski poslužitelj)
+   - jednostavniji za izvedbu (ne zahtijeva autentifikacijski poslužitelj)
    - ključ može biti niz od 8 do 63 ASCII znakova
      - za 256 znakova postoji ~10<sup>78</sup> mogućih kombinacija, ključ je nemoguće izračunati iz *hash* vrijednosti u realnom vremenu
-       - ukoliko korisnik unese predvidljive nizove znakova (ili samo znamenke), tada napadačima otkrivanje ključa olakšava **„brute force” napad** kojim se provjeravaju sve moguće kombinacije nizova znakova i znamenki
+       - ako korisnik unese predvidljive nizove znakova (ili samo znamenke), tada napadačima otkrivanje ključa olakšava **„brute force” napad** kojim se provjeravaju sve moguće kombinacije nizova znakova i znamenki
   
 2. **Enterprise**
    
@@ -375,8 +375,8 @@ Koraci CCMP dekripcije:
 > koji su instalirani u sklopu Kali Linux OS-a. Napad koji je u ovom slučaju bio uspješan je **WPA Handshake Capture** napad koji
 > je moguće izvesti **samo** ako je barem **1 klijent** povezan na pristupnu točku. Tijekom izvođenja, klijentu šalje tzv. **Deauth**
 > pakete, koje pristupne točke šalju kada se klijent ponovno mora identificirati i proći autentifikaciju.
-> Alati tada *slušaju* i prikupljaju **Handshake**  pakete (postupak u kojem pristupna točka i klijent razmijenjuju 
-> informacije potrebne za sigurnu, enkriptiranu komunikaciju) i kada prikupi dovoljno paketa, pokušat će deriptirati WPA/WPA2 ključ.
+> Alati tada *slušaju* i prikupljaju **Handshake**  pakete (postupak u kojem pristupna točka i klijent razmjenjuju 
+> informacije potrebne za sigurnu, enkriptiranu komunikaciju) i kada prikupi dovoljno paketa, pokušat će dekriptirati WPA/WPA2 ključ.
 >
 > Napomena: klijentu kojem alat šalje **Deauth** pakete će privremeno izgubiti vezu s Internetom, pa je ovaj napad **vrlo uočljiv**.
 > 
@@ -413,10 +413,10 @@ Koraci CCMP dekripcije:
 
       - `-m 2500` => način rada za WPA/WPA2 dekriptiranje
       - `-a3` => brute force napad
-      - `capture.hccapx` => pretvorena datoteka koja sadrža WPA Handshake
+      - `capture.hccapx` => pretvorena datoteka koja sadrži WPA Handshake
       - `?d?d?d?d?d?d?d?d` => predložak po kojem će se "pogađati" ključ (8 znamenki)
 
-8. korak - prikazati će se dekriptirani WPA/WPA2 ključ
+8. korak - prikazat će se dekriptirani WPA/WPA2 ključ
 
 <p class="alert alert-danger text-center"><strong><i>Zaključak</i>: izbjegavajte korištenje WPA/WPA2 ključeva koji se sastoje samo od brojeva
 </strong></p>
@@ -465,7 +465,7 @@ Koraci CCMP dekripcije:
 > koji su instalirani u sklopu Kali Linux OS-a. Napad koji je u ovom slučaju bio uspješan je **WPA Handshake Capture** napad koji
 > je moguće izvesti **samo** ako je barem **1 klijent** povezan na pristupnu točku. Tijekom izvođenja, klijentu šalje tzv. **Deauth**
 > pakete, koje pristupne točke šalju kada se klijent ponovno mora identificirati i proći autentifikaciju.
-> Alati tada *slušaju* i prikupljaju **Handshake**  pakete (postupak u kojem pristupna točka i klijent razmijenjuju 
+> Alati tada *slušaju* i prikupljaju **Handshake**  pakete (postupak u kojem pristupna točka i klijent razmjenjuju 
 > informacije potrebne za sigurnu, enkriptiranu komunikaciju) i kada prikupi dovoljno paketa, pokušat će deriptirati WPA/WPA2 ključ.
 >
 > Napomena: klijentu kojem alat šalje **Deauth** pakete će privremeno izgubiti vezu s Internetom, pa je ovaj napad **vrlo uočljiv**.
@@ -475,7 +475,7 @@ Koraci CCMP dekripcije:
 > **Rainbow tablice** se mogu napraviti prije ili nakon prikupljanja paketa, što omogućuje da se otkrivanje ključa odvije i bez komunikacije s pristupnom točkom.
 > U njima se pohranjuju *hash* vrijednosti ključeva za mrežu. Ovisno o uzetom uzorku za odabir ključeva, tablica može biti vrlo velika i za njeno kreiranje može biti
 > potrebno dulje vrijeme.
-> Prilikom kreiranja tablice, napadač mora znati točan **naziv mreže** jer se naziv mreže koristi prilikom generiranja *hash* vrijednosti koje se razmijenjuju između
+> Prilikom kreiranja tablice, napadač mora znati točan **naziv mreže** jer se naziv mreže koristi prilikom generiranja *hash* vrijednosti koje se razmjenjuju između
 > pristupne točke i klijenta tijekom povezivanja na mrežu. 
 
 1. korak - pokrenuti airmon-ng i ispisati popis dostupnih wlan sučelja
@@ -508,14 +508,14 @@ Koraci CCMP dekripcije:
       - `-s "ZyXEL"` = naziv željenje mreže
 
 
-7. korak - ako je **Rainbow tablica** sadržavala vrijednost ključa koji je koristila napadnuda mreža, **coWPAtty** će ispisati vrijednost ključa.
+7. korak - ako je **Rainbow tablica** sadržavala vrijednost ključa koji je koristila napadnuta mreža, **coWPAtty** će ispisati vrijednost ključa.
 
 <p class="alert alert-danger text-center"><strong>Zaključak: izbjegavajte korištenje jednostavnih ili zadanih naziv mreže kao što su: <code>default</code>; nazivi proizvođača opreme: <code>ZyXEL</code>, <code>Linksys</code> i ostala lako predvidljiva imena!<br>Za većinu takvih mreža <a href="https://www.renderlab.net/projects/WPA-tables/" target="_blank">već postoje Rainbow tablice</a> koje omogućavaju brzo otkrivanje WPA/WPA2 ključa pomoću alata kao što je coWPAtty.
 </strong></p>
 
 ### Napadi ponovnom instalacijom ključa
 
-Mathy Vanhoef i Frank Piessens otkrili su ranjivost u WPA2 protokolu. Napadač koji se nalazi u blizini klijenta može iskoristiti te ranjivosti koristeći napad ponovnom instalacijom ključa, i pri tome pročitati sve informacije za koje se smatra da su zaštićene enkripcijom, što se može iskoristiti za krađu povjerljivih informacija. Napad je moguće izvesti na svim modenim WiFi mrežama koji koriste WPA2 protokol. Ovisno o konfiguraciji mreže, moguće je i manipulirati podactcima koji se prenose mrežom.
+Mathy Vanhoef i Frank Piessens otkrili su ranjivost u WPA2 protokolu. Napadač koji se nalazi u blizini klijenta može iskoristiti te ranjivosti koristeći napad ponovnom instalacijom ključa, i pri tome pročitati sve informacije za koje se smatra da su zaštićene enkripcijom, što se može iskoristiti za krađu povjerljivih informacija. Napad je moguće izvesti na svim modernim WiFi mrežama koji koriste WPA2 protokol. Ovisno o konfiguraciji mreže, moguće je i manipulirati podatcima koji se prenose mrežom.
 
 Ranjivosti se nalaze u samome WiFi standardu, a ne u njegovoj implementaciji kod uređaja. Napad se koristi manipulacijom porukama koje se šalju mrežom i klijentu šalje kriptografski ključ koji se već upotrebljava, što omogućava da se pojedini parametri ponovno postave na zadanu vrijednost. Kako se sve informacije sada enkriptiraju već korištenim ključem koji je napadaču poznat, napadač njime može napraviti dekripciju poslanih podataka.
 
@@ -525,13 +525,13 @@ Detaljnije o napadu: <a href="https://www.krackattacks.com/"><quote>KRACK Attacs
 
 ## WPA3
 
-U siječnju 2018. godine WiFi Alliance je objavio novu generaciju protokola za zaštitu bežičnih mreža, **WPA3**. Novi protokol koristio bi nove kriptograske algoritme za enkripciju podataka i ključa, i umjesto dosad standardnog **WPA Handshake**-a, koristio bi **SAE** (*Simultaneous Authentication of Equals*) metodu za razmjenu ključeva (često nazivan *Dragonfly Handshake*), što je trebalo povećati sigurnost mreže i olakšati konfiguraciju uređaja.
+U siječnju 2018. godine WiFi Alliance je objavio novu generaciju protokola za zaštitu bežičnih mreža, **WPA3**. Novi protokol koristio bi nove kriptografske algoritme za enkripciju podataka i ključa, i umjesto dosad standardnog **WPA Handshake**-a, koristio bi **SAE** (*Simultaneous Authentication of Equals*) metodu za razmjenu ključeva (često nazivan *Dragonfly Handshake*), što je trebalo povećati sigurnost mreže i olakšati konfiguraciju uređaja.
 
 U <a href="https://wpa3.mathyvanhoef.com/" target="_blank">travnju 2019. godine Mathy Vanhoef i Eyal Ronen</a> otkrili su **ranjivosti** u **Dragonfly Handshake-u**, što je pokazalo da unatoč naporima WiFi Alliance nije postigao željeni uspjeh za povećanjem sigurnosti bežičnih mreža.
 
-Nakon objave istraživanja ovih ranjivosti, WiFi Alliance je objavila <a href="https://wpa3.mathyvanhoef.com/WPA3_Security_Considerations_20190410.pdf" target="_blank">preporuke</a> za obranu od ovakvih napada, ali autori su otkrili još novih ranjivosti u **WPA3** protokolu koji su proizašli iz implementacije tih preopruka. 
+Nakon objave istraživanja ovih ranjivosti, WiFi Alliance je objavila <a href="https://wpa3.mathyvanhoef.com/WPA3_Security_Considerations_20190410.pdf" target="_blank">preporuke</a> za obranu od ovakvih napada, ali autori su otkrili još novih ranjivosti u **WPA3** protokolu koji su proizašli iz implementacije tih preporuka. 
 
-Njihova su istraživanja postaknula rad na novim sigurnosnim protokolima koji će biti korišteni u novijim implementacijima **WPA3 protokola**.
+Njihova su istraživanja potaknula rad na novim sigurnosnim protokolima koji će biti korišteni u novijim implementacijima **WPA3 protokola**.
 
 ## WPS
 
@@ -539,7 +539,7 @@ Njihova su istraživanja postaknula rad na novim sigurnosnim protokolima koji ć
 
 Dvije osnovne metode za povezivanje pomoću **WPS**-a: unos PIN-a, obvezna metoda za sve WPS certificirane uređaje; pritiskom na stvarnu tipku (*Push – Button* - **PBC** ) na usmjerniku ili kroz simuliranu tipku u softveru. Informacije o mreži se razmjenjuju pomoću **EAP** protokola. **WPS** ne pruža podršku za bežične mreže koje koriste zastarjeli **WEP** protokol, već samo novije WPA/WPA2 protokole.
 
-**WPS** je odlična mogućnost za povezivanje, ali njegova izvedba sa pogleda sigurnosti je vrlo loša jer jer vrlo je ranjiv kroz različite napade. Postoji više aplikacija koje iskorištavaju propuste u njegovim slabim algoritmima, tako da je moguće pomoću tih ranjivosti dobiti ključ mreže.
+**WPS** je odlična mogućnost za povezivanje, ali njegova izvedba s pogleda sigurnosti je vrlo loša jer vrlo je ranjiv kroz različite napade. Postoji više aplikacija koje iskorištavaju propuste u njegovim slabim algoritmima, tako da je moguće pomoću tih ranjivosti dobiti ključ mreže.
 
 **WPS** protokol tijekom razmjene informacija (poruka **M4**) o PIN-u (8 znamenki) za pristup, prvo provjerava 1. polovicu primljenog PIN-a, i šalje poruku je li ta polovica ispravna (**NACK**) ili ne (**M5**). Kako se 2. polovica PIN-a sastoji od 4 znamenke (od kojih je zadnja polje za provjeru), nakon što napadač sazna 1. polovicu PIN-a (10.000 kombinacija), vrlo lako će izračunati i 2. polovicu za koju mu treba samo 1.000 pokušaja jer je zadnja, 8. znamenka kao polje provjere smanjila broj potrebnih kombinacija. Kada napadač
 konačno posjeduje cijeli PIN za pristup, zatražit će od usmjernika informacije o konfiguraciji mreže koja sadržava i ključ za pristup mreži.
@@ -576,7 +576,7 @@ Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji odr
     <li>
     Promijeniti zadano ime pristupne točke ili ga <abbr class="tool" title="za napredne korisnike">sakriti</abbr>:
     <ul>
-      <li>Ako je zadano ime mreže <strong>jedno od slijedećih</strong>, odmah ga je potrebno <strong>promijeniti</strong>:</li>
+      <li>Ako je zadano ime mreže <strong>jedno od sljedećih</strong>, odmah ga je potrebno <strong>promijeniti</strong>:</li>
       <ul>
         <li><strong>default</strong> - najčešće korišteno ime</li>
         <li><strong>naziv ili model pristupne točke ili usmjernika</strong> (npr. ZyXEL, Linksys i sl.)</li>

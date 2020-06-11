@@ -455,6 +455,64 @@ Koraci CCMP dekripcije:
       - `capture.hccapx` => pretvorena datoteka koja sadrža WPA Handshake
       - `rockyou.txt` => *Dictionary* - rječnik
 
+### Probijanje WPA2 zaštite - napad Rainbow tablicama
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}</style><div class='embed-container' style="margin-bottom: 1rem;"><iframe src="https://www.youtube-nocookie.com/embed/QJTDanR_9MQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+> **Opis napada**
+> 
+> Ovaj napad je izveden pomoću alata **Wifite** koji automatski obavlja različite napade koje može izvesti uz pomoć drugih alata
+> koji su instalirani u sklopu Kali Linux OS-a. Napad koji je u ovom slučaju bio uspješan je **WPA Handshake Capture** napad koji
+> je moguće izvesti **samo** ako je barem **1 klijent** povezan na pristupnu točku. Tijekom izvođenja, klijentu šalje tzv. **Deauth**
+> pakete, koje pristupne točke šalju kada se klijent ponovno mora identificirati i proći autentifikaciju.
+> Alati tada *slušaju* i prikupljaju **Handshake**  pakete (postupak u kojem pristupna točka i klijent razmijenjuju 
+> informacije potrebne za sigurnu, enkriptiranu komunikaciju) i kada prikupi dovoljno paketa, pokušat će deriptirati WPA/WPA2 ključ.
+>
+> Napomena: klijentu kojem alat šalje **Deauth** pakete će privremeno izgubiti vezu s Internetom, pa je ovaj napad **vrlo uočljiv**.
+> 
+> Nakon što se prikupi dovoljan broj paketa, moguće je dekriptirati ključ pomoću **Rainbow tablica** i **coWPAtty** alata. **coWPAtty** čita vrijedosti *hasheva*
+> pohranjenih u tablici i uspoređuje ih s onima koji su prenešeni tijekom **Handshake**a.
+> **Rainbow tablice** se mogu napraviti prije ili nakon prikupljanja paketa, što omogućuje da se otkrivanje ključa odvije i bez komunikacije s pristupnom točkom.
+> U njima se pohranjuju *hash* vrijednosti ključeva za mrežu. Ovisno o uzetom uzorku za odabir ključeva, tablica može biti vrlo velika i za njeno kreiranje može biti
+> potrebno dulje vrijeme.
+> Prilikom kreiranja tablice, napadač mora znati točan **naziv mreže** jer se naziv mreže koristi prilikom generiranja *hash* vrijednosti koje se razmijenjuju između
+> pristupne točke i klijenta tijekom povezivanja na mrežu. 
+
+1. korak - pokrenuti airmon-ng i ispisati popis dostupnih wlan sučelja
+
+    `sudo airmon-ng`
+
+2. korak - **Ako postoje procesi koji koriste karticu (ispiše se upozorenje u prethodnom koraku), ugasiti ih**
+    
+    `sudo airmon-ng check kill `
+
+3. korak - pokrenuti alat **wifite2**
+
+    `sudo wifite`
+
+4. korak - odabrati željenu mrežu
+5. korak - pričekati da se izvrše automatski napadi
+6. korak - dekriptirati ključ pomoću alata **coWPAtty**
+   1. provjeriti naziv datoteke pohranjene u direktoriju **hs**
+
+      `ls hs/`
+
+   2. pokrenuti alat **coWPAtty**
+   
+      `sudo cowpatty -r hs/handshake.cap -d ZyXEL.hash -s "ZyXEL"`
+
+      - `-r` = opcija za korištenje datoteke koja sadržava mrežne pakete
+      - `hs/handshake.cap` = datoteka koja sadržava **WPA Handshake**
+      - `-d` = opcija za korištenje **Rainbow tablice**
+      - `ZyXEL.hash` = <a href="https://www.renderlab.net/projects/WPA-tables/" target="_blank"><strong>Rainbow tablica</strong></a>
+      - `-s "ZyXEL"` = naziv željenje mreže
+
+
+7. korak - ako je **Rainbow tablica** sadržavala vrijednost ključa koji je koristila napadnuda mreža, **coWPAtty** će ispisati vrijednost ključa.
+
+<p class="alert alert-danger text-center"><strong>Zaključak: izbjegavajte korištenje jednostavnih ili zadanih naziv mreže kao što su: <code>default</code>; nazivi proizvođača opreme: <code>ZyXEL</code>, <code>Linksys</code> i ostala lako predvidljiva imena!<br>Za većinu takvih mreža <a href="https://www.renderlab.net/projects/WPA-tables/" target="_blank">već postoje Rainbow tablice</a> koje omogućavaju brzo otkrivanje WPA/WPA2 ključa pomoću alata kao što je coWPAtty.
+</strong></p>
+
 ## WPS
 
 **WPS** (*WiFi Protected Setup*) je bežični standard za uspostavljanje veze između usmjernika ili pristupne točke i bežičnih uređaja predstavljen je početkom 2007. s ciljem omogućavanja kućnim korisnicima brzo postavljanje sigurnosnih postavki za povezivanje bežičnih uređaja u mreži.
@@ -468,7 +526,7 @@ konačno posjeduje cijeli PIN za pristup, zatražit će od usmjernika informacij
 
 ![WPS](/assets/rm/wifi/wps.png){: .center-img }
 
-Ovakav **brute-force** algoritam uređaji najčešće nisu zaustavljali niti prepoznali, tako da napadač sazna ključ mreže kroz nekoliko sati.
+Ovakav **brute-force** algoritam uređaji najčešće nisu zaustavljali niti prepoznali, tako da napadač može saznati ključ mreže kroz nekoliko sati.
 U nekim slučajevima, nakon što je napadač saznao ključ mreže, usmjernik bi bio "onesposobljen" za normalan rad i trebalo ga je ponovno
 pokrenuti.
 
@@ -514,12 +572,12 @@ Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji odr
       <ul>
         <li>samo ime, prezime ili slično</li>
         <li>JMBG ili OIB</li>
-        <li>datum rođenja (bez znakova, samo znamenke)</li>
-        <li><strong>naziv pristupne točke - ovo nije nikakva zaštita 😟</strong></li>
+        <li>datumi (bez znakova, samo znamenke)</li>
+        <li><strong>naziv pristupne točke - ovo nije nikakva zaštita</strong></li>
       </ul>
     </li>
     <li><strong>Isključite WPS</strong> ako ga ne koristite (<strong>posebno</strong> ako niste sigurni je li pristupna točka ranjiva)</li>
-    <li>Ne dijelite WPA2 ključ s nepouzdanim osobama 😉</li>
+    <li>Ne dijelite WPA2 ključ s nepouzdanim osobama</li>
   </ol>
 </div>
 

@@ -513,6 +513,26 @@ Koraci CCMP dekripcije:
 <p class="alert alert-danger text-center"><strong>Zaključak: izbjegavajte korištenje jednostavnih ili zadanih naziv mreže kao što su: <code>default</code>; nazivi proizvođača opreme: <code>ZyXEL</code>, <code>Linksys</code> i ostala lako predvidljiva imena!<br>Za većinu takvih mreža <a href="https://www.renderlab.net/projects/WPA-tables/" target="_blank">već postoje Rainbow tablice</a> koje omogućavaju brzo otkrivanje WPA/WPA2 ključa pomoću alata kao što je coWPAtty.
 </strong></p>
 
+### Napadi ponovnom instalacijom ključa
+
+Mathy Vanhoef i Frank Piessens otkrili su ranjivost u WPA2 protokolu. Napadač koji se nalazi u blizini klijenta može iskoristiti te ranjivosti koristeći napad ponovnom instalacijom ključa, i pri tome pročitati sve informacije za koje se smatra da su zaštićene enkripcijom, što se može iskoristiti za krađu povjerljivih informacija. Napad je moguće izvesti na svim modenim WiFi mrežama koji koriste WPA2 protokol. Ovisno o konfiguraciji mreže, moguće je i manipulirati podactcima koji se prenose mrežom.
+
+Ranjivosti se nalaze u samome WiFi standardu, a ne u njegovoj implementaciji kod uređaja. Napad se koristi manipulacijom porukama koje se šalju mrežom i klijentu šalje kriptografski ključ koji se već upotrebljava, što omogućava da se pojedini parametri ponovno postave na zadanu vrijednost. Kako se sve informacije sada enkriptiraju već korištenim ključem koji je napadaču poznat, napadač njime može napraviti dekripciju poslanih podataka.
+
+Kako bi se onemogućilo izvršavanje ovog napada na uređaju, autori preporučuju ažuriranje pogonskih programa bežičnih mrežnih kartica.
+
+Detaljnije o napadu: <a href="https://www.krackattacks.com/"><quote>KRACK Attacs</quote></a>, Mathy Vanhoef, Frank Piessens
+
+## WPA3
+
+U siječnju 2018. godine WiFi Alliance je objavio novu generaciju protokola za zaštitu bežičnih mreža, **WPA3**. Novi protokol koristio bi nove kriptograske algoritme za enkripciju podataka i ključa, i umjesto dosad standardnog **WPA Handshake**-a, koristio bi **SAE** (*Simultaneous Authentication of Equals*) metodu za razmjenu ključeva (često nazivan *Dragonfly Handshake*), što je trebalo povećati sigurnost mreže i olakšati konfiguraciju uređaja.
+
+U <a href="https://wpa3.mathyvanhoef.com/" target="_blank">travnju 2019. godine Mathy Vanhoef i Eyal Ronen</a> otkrili su **ranjivosti** u **Dragonfly Handshake-u**, što je pokazalo da unatoč naporima WiFi Alliance nije postigao željeni uspjeh za povećanjem sigurnosti bežičnih mreža.
+
+Nakon objave istraživanja ovih ranjivosti, WiFi Alliance je objavila <a href="https://wpa3.mathyvanhoef.com/WPA3_Security_Considerations_20190410.pdf" target="_blank">preporuke</a> za obranu od ovakvih napada, ali autori su otkrili još novih ranjivosti u **WPA3** protokolu koji su proizašli iz implementacije tih preopruka. 
+
+Njihova su istraživanja postaknula rad na novim sigurnosnim protokolima koji će biti korišteni u novijim implementacijima **WPA3 protokola**.
+
 ## WPS
 
 **WPS** (*WiFi Protected Setup*) je bežični standard za uspostavljanje veze između usmjernika ili pristupne točke i bežičnih uređaja predstavljen je početkom 2007. s ciljem omogućavanja kućnim korisnicima brzo postavljanje sigurnosnih postavki za povezivanje bežičnih uređaja u mreži.
@@ -551,10 +571,10 @@ Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji odr
 ## Zaključak
 
 <div class="alert alert-warning">
-  <p><strong>Vrlo važno, upamtiti i primijeniti:</strong></p>
+  <p><strong>Prilikom konfiguracije bežičnih mreža, preporučljivo je:</strong></p>
   <ol>
     <li>
-    Promijenite zadano ime pristupne točke ili ga <abbr class="tool" title="za napredne korisnike">sakrijte</abbr>:
+    Promijeniti zadano ime pristupne točke ili ga <abbr class="tool" title="za napredne korisnike">sakriti</abbr>:
     <ul>
       <li>Ako je zadano ime mreže <strong>jedno od slijedećih</strong>, odmah ga je potrebno <strong>promijeniti</strong>:</li>
       <ul>
@@ -565,8 +585,8 @@ Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji odr
       <li>Ime koje je unaprijed postavio operater može se koristiti samo ako sadržava nasumične znakove ili brojeve</li>
     </ul>
     </li>
-    <li>Koristite <strong>WPA2-PSK ili WPA2-Enterprise</strong> zaštitu WiFi mreže</li>
-    <li>Za WPA2 ključ koristite niz od <strong>najmanje 8 znakova, koji nisu predvidljivi ili česti</strong></li>
+    <li>Koristiti <strong>WPA2-PSK ili WPA2-Enterprise</strong> zaštitu WiFi mreže</li>
+    <li>Za WPA2 ključ koristiti niz od <strong>najmanje 8 znakova, koji nisu predvidljivi ili česti</strong></li>
     <li>
       <strong>Nepreporučljivi</strong> nizovi za ključ:
       <ul>
@@ -576,9 +596,10 @@ Kasnije je kroz WPS 2.0 zakrpan dio ranjivosti, ali i dalje postoje uređaji odr
         <li><strong>naziv pristupne točke - ovo nije nikakva zaštita</strong></li>
       </ul>
     </li>
-    <li><strong>Isključite WPS</strong> ako ga ne koristite (<strong>posebno</strong> ako niste sigurni je li pristupna točka ranjiva)</li>
+    <li><strong>Isključiti WPS</strong> ako se ne koristiti (<strong>posebno</strong> ako niste sigurni je li pristupna točka ranjiva na WPS napade)</li>
     <li>Ne dijelite WPA2 ključ s nepouzdanim osobama</li>
   </ol>
+  <p><strong>Pridržavanje ovih uputa ne povećava nužno sigurnost mreže, već smanjuje mogućnosti da napadač otkrije sigurnosti ključ mreže.</strong></p>
 </div>
 
 ## Izvori

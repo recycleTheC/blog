@@ -54,7 +54,7 @@ exclude: true
     <br><br>
     
     <label for="numOfNums">Maksimalan broj:</label>
-    <input type="number" class="form-control" id="maxNum" value="35" min="1" max="255" onChange="load(); updateMax(this.value)">
+    <input type="number" class="form-control" id="maxNum" value="35" min="1" max="255" onChange="updateMax(this.value); load();">
     <br>
     <input id="submit" type="button" value="Izvuci nove brojeve" onclick="load()">
     </div>

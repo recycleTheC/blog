@@ -7,12 +7,18 @@ exclude: true
 
 <style>
 
-#numbers li {
-    display:inline;
-    list-style: none;
-    margin: 2em;
-    font-size: 20px;
+#numbers li {    
+    width: 25%;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24px;
     font-weight: bolder;
+    border: 3px solid #666;
+    display:inline-block;
+    list-style: none;
+    margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 #submit{
@@ -25,13 +31,35 @@ exclude: true
     font-weight: bold;
 }
 
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  height: calc(1.5em + 0.5rem + 2px);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
 </style>
+
+<form>
+  <div class="form-group">
+    <label for="numOfNums">Broj nasumičnih brojeva:</label>
+    <input type="number" class="form-control" id="numOfNums" value="7" min="1" max="255" onChange="load();">
+    
+    <label for="numOfNums">Maksimalan broj:</label>
+    <input type="number" class="form-control" id="maxNum" value="35" min="1" max="255" onChange="load();">
+    </div>
+    
+    <input id="submit" type="button" value="Izvuci nove brojeve" onclick="load()">
+</form>
 
 <div>
     <ul id="numbers"></ul>
 </div>
-
-<input id="submit" type="button" value="Izvuci nove brojeve" onclick="load()">
 
 <script>
 
@@ -39,9 +67,12 @@ load();
 
 function load(){
 
+		var n = parseInt(document.getElementById("numOfNums").value);
+    var max = parseInt(document.getElementById("maxNum").value);
+
     var array = [];
     
-    for(var i = 1; i <= 35; i++){
+    for(var i = 1; i <= max; i++){
         array.push(i);
     }
     
@@ -65,12 +96,12 @@ function load(){
     
     var numbers = [];
     
-    for(var i = 0; i < 7; i++){
+    for(var i = 0; i < n; i++){
         numbers.push(array[i]);
     }
     
-    for(var i = 0; i < 6; i++){
-        for(var j = i+1; j < 7; j++){
+    for(var i = 0; i < n-1; i++){
+        for(var j = i+1; j < n; j++){
             if(numbers[i] > numbers[j]){
                 var temp = numbers[i];
                 numbers[i] = numbers[j];
@@ -82,12 +113,10 @@ function load(){
     var field = document.getElementById('numbers');
     field.innerHTML = "";
     
-    for(var i = 0; i < 7; i++){
+    for(var i = 0; i < n; i++){
         var number = document.createElement('li');
         number.innerHTML = numbers[i];
         field.appendChild(number);
     }
 }
-
-
 </script>

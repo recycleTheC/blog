@@ -8,7 +8,7 @@ exclude: true
 <style>
 
 #numbers li {    
-    width: 25%;
+    width: 60px;
     line-height: 60px;
     border-radius: 50%;
     text-align: center;
@@ -50,11 +50,13 @@ exclude: true
     <label for="numOfNums">Broj nasumičnih brojeva:</label>
     <input type="number" class="form-control" id="numOfNums" value="7" min="1" max="255" onChange="load();">
     
+    <br><br>
+    
     <label for="numOfNums">Maksimalan broj:</label>
     <input type="number" class="form-control" id="maxNum" value="35" min="1" max="255" onChange="load();">
-    </div>
-    
+    <br>
     <input id="submit" type="button" value="Izvuci nove brojeve" onclick="load()">
+    </div>
 </form>
 
 <div>

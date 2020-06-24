@@ -125,9 +125,9 @@ function load(){
 
 function updateMax(max){
 	document.getElementById("numOfNums").max=max;
-    	var n = document.getElementById("numOfNums").value;
+    	var n = parseInt(document.getElementById("numOfNums").value);
     
-    	if(n > max){
+    	if(n > parseInt(max)){
     		document.getElementById("numOfNums").value=max;
     	}
 }

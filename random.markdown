@@ -59,7 +59,7 @@ exclude: true
     </div>
 </form>
 
-<div>
+<div style="text-align: center !important;">
     <ul id="numbers"></ul>
 </div>
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  "7 nasumičnih brojeva"
+title:  "Nasumični brojevi"
 permalink: /random/
 exclude: true
 ---

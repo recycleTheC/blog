@@ -19,6 +19,8 @@ exclude: true
     list-style: none;
     margin-bottom: 5px;
     margin-right: 5px;
+    
+    margin-left:0px!important;
 }
 
 #submit{
@@ -42,7 +44,6 @@ exclude: true
   line-height: 1.5;
   border-radius: 0.2rem;
 }
-
 </style>
 
 <form>
@@ -60,7 +61,7 @@ exclude: true
 </form>
 
 <div style="text-align: center !important;">
-    <ul id="numbers"></ul>
+    <ul id="numbers" style="padding-left: 0px;"></ul>
 </div>
 
 <script>
@@ -123,6 +124,6 @@ function load(){
 }
 
 function updateMax(max){
-	document.getElementById("numOfNums").max=max;
+		document.getElementById("numOfNums").max=max;
 }
 </script>

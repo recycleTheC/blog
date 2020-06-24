@@ -61,7 +61,7 @@ exclude: true
 </form>
 
 <div style="text-align: center !important;">
-    <ul id="numbers" style="padding-left: 0px;"></ul>
+    <ul id="numbers" style="padding-left: 0px; margin-left:0px!important;"></ul>
 </div>
 
 <script>

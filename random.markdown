@@ -48,12 +48,12 @@ exclude: true
 <form>
   <div class="form-group">
     <label for="numOfNums">Broj nasumičnih brojeva:</label>
-    <input type="number" class="form-control" id="numOfNums" value="7" min="1" max="255" onChange="load();">
+    <input type="number" class="form-control" id="numOfNums" value="7" min="1" max="35" onChange="load();">
     
     <br><br>
     
     <label for="numOfNums">Maksimalan broj:</label>
-    <input type="number" class="form-control" id="maxNum" value="35" min="1" max="255" onChange="load();">
+    <input type="number" class="form-control" id="maxNum" value="35" min="1" max="255" onChange="load(); updateMax(this.value)">
     <br>
     <input id="submit" type="button" value="Izvuci nove brojeve" onclick="load()">
     </div>
@@ -120,5 +120,9 @@ function load(){
         number.innerHTML = numbers[i];
         field.appendChild(number);
     }
+}
+
+function updateMax(max){
+	document.getElementById("numOfNums").max=max;
 }
 </script>
